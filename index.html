@@ -1,0 +1,934 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>GKD</title>
+    <!--
+
+
+    -->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link type="text/css" href="css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/fontAwesome.css">
+    <link rel="stylesheet" href="css/tooplate-style.css">
+<!--表格-->
+    <link rel="stylesheet" href="dist/excel-bootstrap-table-filter-style.css" />
+
+    <script src="js/vendor/echarts.js"></script>
+    <script>
+        var code1,code2,code3;
+    </script>
+    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+</head>
+
+<style type="text/css">
+    button
+    {
+        background-color:black;
+        color:white;
+        opacity:0.6;
+        width: 50px;
+        height: 40px;
+        font-family: 'Microsoft YaHei';
+        font-size: 13px;
+        font-weight:bold
+    }
+    a {
+        color: #c75f3e;
+    }
+
+    #mytable {
+        width: 700px;
+        padding: 0;
+        margin: 0;
+    }
+
+    caption {
+        padding: 0 0 5px 0;
+        width: 700px;
+        font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+        text-align: right;
+    }
+
+    th {
+        font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+        color: #4f6b72;
+        border-right: 1px solid #C1DAD7;
+        border-bottom: 1px solid #C1DAD7;
+        border-top: 1px solid #C1DAD7;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-align: left;
+        padding: 6px 6px 6px 12px;
+    }
+
+    th.nobg {
+        border-top: 0;
+        border-left: 0;
+        border-right: 1px solid #C1DAD7;
+        background: none;
+    }
+
+    td {
+        border-right: 1px solid #C1DAD7;
+        border-bottom: 1px solid #C1DAD7;
+        background: #fff;
+        font-size:11px;
+        padding: 6px 6px 6px 12px;
+        color: #4f6b72;
+    }
+
+
+    td.alt {
+        background: #F5FAFA;
+        color: #797268;
+    }
+
+    th.spec {
+        border-left: 1px solid #C1DAD7;
+        border-top: 0;
+
+        font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+    }
+
+    th.specalt {
+        border-left: 1px solid #C1DAD7;
+        border-top: 0;
+
+        font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+        color: #797268;
+    }
+</style>
+<!--列表-->
+
+
+<body onload="loadaction()">
+
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+
+<div  id="t1">
+    <div  id="t2">
+        <div  id="t3">
+            <div  id="t4">
+                <section>
+                    <ul>
+                        <a href="#t1"> </a>
+                        <a href="#t1"><li class="icon fa fa-home " id="uno"></li></a>
+                        <a href="#t2"><li class="icon fa fa-user" id="dos"></li></a>
+                        <a href="#t3"><li class="icon fa fa-line-chart" id="tres"></li></a>
+                        <!--                   <a href="#t4"><li class="icon fa fa-phone" id="cuatro"></li></a>-->
+                    </ul>
+                    <div class="page" id="p1">
+                        <!--                     <li class="icon fa fa-home">-->
+                        <!--                         <span class="title">Welcome To</span>-->
+                        <!--                         <h4>Kinetic</h4>-->
+                        <!--                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. -->
+                        <!--                             Sed varius neque non imperdiet auctor. Duis sit amet velit eu lorem sollicitudin sodales.-->
+                        <!--                         </p>-->
+                        <!--                         <div class="primary-button">-->
+                        <!--                         <a href="#t2">Discover More</a></div>-->
+                        <!--                     </li>   -->
+                        <li class="icon" style="margin-top: 5%">
+                        <div class="col-md-12" >
+                            <h1>基金推荐系统</h1>
+                        </div>
+                         <div class="mt-tabpage" js-tab="2">
+                            <div class="mt-tabpage-title">
+                                <a href="javascript:" class="mt-tabpage-item mt-tabpage-item-cur">推荐1</a>
+                                <a href="javascript:" class="mt-tabpage-item">推荐2</a>
+                                <a href="javascript:" class="mt-tabpage-item">推荐3</a>
+                            </div>
+                            <div class="mt-tabpage-count" style="color: #4984a6;margin: 0;padding: 0">
+                                <ul class="mt-tabpage-cont__wrap" style="color: #4984a6;margin: 0;padding: 0">
+                                    <li class="mt-tabpage-item"style="color: #4984a6;margin: 0;padding: 0">
+                                        <div class="container">
+                                            <div class="leftbox">
+                                                <div class="upbox">
+                                                    <h1 id="2">name</h1><h3 id="1">1</h3>
+                                                </div >
+                                                <div  class="downbox">
+                                                        <p>基金涨幅：</p>
+                                                        <p id="3">row 2, cell 2</p>
+                                                        <p>基金类型：</p>
+                                                        <p id="4">row 2, cell 2</p>
+                                                        <p>基金风险：</p>
+                                                        <p id="5">row 2, cell 2</p>
+                                                </div>
+                                            </div>
+                                            <div class="rightbox">
+                                                <div class="topbox" id="topBox"></div>
+                                                <div class="bottombox">
+                                                    <div class="bottomleft">
+
+                                                    </div>
+                                                    <div class="bottomright">
+                                                        <h3><a href="http://fund.eastmoney.com/000001.html?spm=search">更多信息</a></h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="mt-tabpage-item"style="color: #4984a6;margin: 0;padding: 0">
+                                        <div class="container">
+                                        <div class="leftbox">
+                                            <div class="upbox">
+                                                <h1 id="7">name</h1><h3 id="6">3</h3>
+                                            </div >
+                                            <div  class="downbox">
+                                                <p>基金涨幅：</p>
+                                                <p id="8">row 2, cell 2</p>
+                                                <p>基金类型：</p>
+                                                <p id="9">row 2, cell 2</p>
+                                                <p>基金风险：</p>
+                                                <p id="10">row 2, cell 2</p>
+                                            </div>
+                                        </div>
+                                        <div class="rightbox">
+                                            <div class="topbox" id="topBox2"></div>
+                                            <div class="bottombox">
+                                                <div class="bottomleft">
+
+                                                </div>
+                                                <div class="bottomright">
+                                                    <h3><a href="http://fund.eastmoney.com/000003.html?spm=search">更多信息</a></h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </li>
+                                    <li class="mt-tabpage-item"style="color: #4984a6;margin: 0;padding: 0">
+                                        <div class="container">
+                                            <div class="leftbox">
+                                                <div class="upbox">
+                                                    <h1 id="12">name</h1><h3 id="11">5</h3>
+                                                </div >
+                                                <div  class="downbox">
+                                                    <p>基金涨幅：</p>
+                                                    <p id="13">row 2, cell 2</p>
+                                                    <p>基金类型：</p>
+                                                    <p id="14">row 2, cell 2</p>
+                                                    <p>基金风险：</p>
+                                                    <p id="15">row 2, cell 2</p>
+                                                </div>
+                                            </div>
+                                            <div class="rightbox">
+                                                <div class="topbox" id="topBox3"></div>
+                                                <div class="bottombox">
+                                                    <div class="bottomleft">
+
+                                                    </div>
+                                                    <div class="bottomright">
+                                                        <h3><a href="http://fund.eastmoney.com/000005.html?spm=search">更多信息</a></h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        </li>
+
+                    </div>
+                    <div class="page" id="p2">
+                        <li class="icon fa fa-user"><span class="title">About Us</span>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="left-text">
+                                            <h4>We are Kinetic</h4>
+                                            <p>This kinetic HTML template is provided by Tooplate for free of charge. You may use this layout for your website. Please tell your friends about Tooplate. Thank you.<br><br>Cras suscipit, sem vel cursus iaculis, nibh augue placerat enim, in varius dolor turpis at augue. Nulla facilisi. In quis sem pellentesque, tristique ligula non, tincidunt ipsum. Curabitur porttitor, justo id egestas egestas, enim augue lacinia quam, et volutpat velit augue sodales velit.</p>
+                                            <div class="primary-button">
+                                                <a href="#t3">Discover More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="right-image">
+                                            <img src="img/right-about-image.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                    </div>
+                    <div class="page" id="p3">
+                        <li class="icon fa fa-image"><span class="title">Our Gallery</span>
+<!--                            <div class="container">-->
+<!--                                <div class="row">-->
+<!--                                    <div class="col-md-3 col-md-offset-1">-->
+<!--                                        <div class="project-item">-->
+<!--                                            <a href="img/item-01.jpg" data-lightbox="image-1"><img src="img/thumb-01.jpg"></a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-md-3">-->
+<!--                                        <div class="project-item">-->
+<!--                                            <a href="img/item-02.jpg" data-lightbox="image-1"><img src="img/thumb-02.jpg"></a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-md-4">-->
+<!--                                        <div class="project-item">-->
+<!--                                            <a href="img/item-03.jpg" data-lightbox="image-1"><img src="img/thumb-03.jpg"></a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-md-4 col-md-offset-1">-->
+<!--                                        <div class="project-item">-->
+<!--                                            <a href="img/item-04.jpg" data-lightbox="image-1"><img src="img/thumb-04.jpg"></a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-md-3">-->
+<!--                                        <div class="project-item">-->
+<!--                                            <a href="img/item-05.jpg" data-lightbox="image-1"><img src="img/thumb-05.jpg"></a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-md-3">-->
+<!--                                        <div class="project-item last-project">-->
+<!--                                            <a href="img/item-06.jpg" data-lightbox="image-1"><img src="img/thumb-06.jpg"></a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h2>Table 1</h2>
+                                        <table id="table" class="table table-bordered table-intel">
+                                            <thead>
+                                            <tr>
+                                                <th class="filter" >Animal</th>
+                                                <th class="filter">Class</th>
+                                                <th class="filter">Collective Noun</th>
+                                                <th class="filter">A Number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>Bear</td>
+                                                <td>Mammal</td>
+                                                <td>Sleuth</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ant</td>
+                                                <td>Insect</td>
+                                                <td>Army</td>
+                                                <td>2</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Salamander</td>
+                                                <td>Amphibian</td>
+                                                <td>Congress</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Owl</td>
+                                                <td>Bird</td>
+                                                <td>Parliament</td>
+                                                <td>4</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Frog</td>
+                                                <td>Amphibian</td>
+                                                <td>Army</td>
+                                                <td>5</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Shark</td>
+                                                <td>Fish</td>
+                                                <td>Gam</td>
+                                                <td>6</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Kookaburra</td>
+                                                <td>Bird</td>
+                                                <td>Cackle</td>
+                                                <td>7</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Crow</td>
+                                                <td>Bird</td>
+                                                <td>Murder</td>
+                                                <td>8</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Elephant</td>
+                                                <td>Mammal</td>
+                                                <td>Herd</td>
+                                                <td>9</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Barracude</td>
+                                                <td>Fish</td>
+                                                <td>Grist</td>
+                                                <td>10</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h2>Table 2</h2>
+                                        <table id="table2" class="table table-bordered table-intel">
+                                            <thead>
+                                            <tr >
+                                                <th class="filter"  style="text-align: center">Animal</th>
+                                                <th class="filter" style="text-align: center">Class</th>
+                                                <th class="filter"style="text-align: center">Collective Noun</th>
+                                                <th class="filter"style="text-align: center">A Number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>Bear</td>
+                                                <td>Mammal</td>
+                                                <td>Sleuth</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ant</td>
+                                                <td>Insect</td>
+                                                <td>Army</td>
+                                                <td>2</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Salamander</td>
+                                                <td>Amphibian</td>
+                                                <td>Congress</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Owl</td>
+                                                <td>Bird</td>
+                                                <td>Parliament</td>
+                                                <td>4</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Frog</td>
+                                                <td>Amphibian</td>
+                                                <td>Army</td>
+                                                <td>5</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Shark</td>
+                                                <td>Fish</td>
+                                                <td>Gam</td>
+                                                <td>6</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Kookaburra</td>
+                                                <td>Bird</td>
+                                                <td>Cackle</td>
+                                                <td>7</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Crow</td>
+                                                <td>Bird</td>
+                                                <td>Murder</td>
+                                                <td>8</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Elephant</td>
+                                                <td>Mammal</td>
+                                                <td>Herd</td>
+                                                <td>9</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Barracude</td>
+                                                <td>Fish</td>
+                                                <td>Grist</td>
+                                                <td>10</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h2>Table 3</h2>
+                                        <p>姓名字段只提供搜索，不带过滤和排序</p>
+                                        <table id="table3" class="table table-bordered table-intel">
+                                            <thead>
+                                            <tr>
+                                                <th class="filter">编号</th>
+                                                <th class="no-sort no-filter">姓名</th>
+                                                <th class="filter">成绩</th>
+                                            </tr >
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>张三</td>
+                                                <td>68</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>李四</td>
+                                                <td>75</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>王五</td>
+                                                <td>86</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>赵六</td>
+                                                <td>76</td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>韩七</td>
+                                                <td>95</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </li>
+                    </div>
+                    <div class="page" id="p4">
+                        <li class="icon fa fa-phone"><span class="title">Contact Us</span>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <form id="contact" action="" method="post">
+                                            <div class="col-md-12">
+                                                <fieldset>
+                                                    <input name="name" type="text" class="form-control" id="name" placeholder="Your Name" required="">
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <fieldset>
+                                                    <input name="email" type="email" class="form-control" id="email" placeholder="Email" required="">
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <fieldset>
+                                                    <textarea name="message" rows="6" class="form-control" id="message" placeholder="Message" required=""></textarea>
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <fieldset>
+                                                    <button type="submit" id="form-submit" class="btn">Send Message</button>
+                                                </fieldset>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="right-info">
+                                            <p>Lorem ipsum dolor , consectetur adipiscing elit. Nunc purus ligula, ullamcorper idermate velit id, vestibulum auc sapien. Sed quis mauris eget semps imperdiet rhoncus.<br><br>
+                                                <em>120-360 Etiam mauris erat,<br>
+                                                    Vestibulum eu augue nec, 10110<br>
+                                                    Nam consequat<br></em></p>
+                                            <ol class="social-icons">
+                                                <i><a href="#"><i class="fa fa-facebook"></i></a></i>
+                                                <i><a href="#"><i class="fa fa-twitter"></i></a></i>
+                                                <i><a href="#"><i class="fa fa-linkedin"></i></a></i>
+                                                <i><a href="#"><i class="fa fa-rss"></i></a></i>
+                                                <i><a href="#"><i class="fa fa-behance"></i></a></i>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </div>
+                    <!--                  <p class="credit">Copyright &copy; 2017 Company Name -->
+                    <!--                        -->
+                    <!--                        - Designed by <a href="http://www.tooplate.com" target="_parent">Tooplate</a></p>-->
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+<script src="js/vendor/bootstrap.min.js"></script>
+
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+<!--画图-->
+<script type="text/javascript">
+
+
+    var dom = document.getElementById("topBox");
+    var myChart = echarts.init(dom);
+
+    // 指定图表的配置项和数据
+    option = {
+        // title: {
+        //     text: '基础雷达图'
+        // },
+        tooltip: {},
+        legend: {
+            data: ['预算分配（Allocated Budget）', '实际开销（Actual Spending）']
+        },
+        radar: {
+            // shape: 'circle',
+            name: {
+                textStyle: {
+                    color: '#fff',
+                    backgroundColor: '#999',
+                    borderRadius: 3,
+                    padding: [3, 5]
+                }
+            },
+            indicator: [
+                { name: '销售（sales）', max: 6500},
+                { name: '管理（Administration）', max: 16000},
+                { name: '技术（Techology）', max: 30000},
+                { name: '客服（Customer Support）', max: 38000},
+                { name: '研发（Development）', max: 52000},
+                { name: '市场（Marketing）', max: 25000}
+            ]
+        },
+        series: [{
+            name: '预算 vs 开销（Budget vs spending）',
+            type: 'radar',
+            // areaStyle: {normal: {}},
+            data : [
+                {
+                    value : [4300, 10000, 28000, 35000, 50000, 19000],
+                    name : '预算分配（Allocated Budget）'
+                },
+                {
+                    value : [5000, 14000, 28000, 31000, 42000, 21000],
+                    name : '实际开销（Actual Spending）'
+                }
+            ]
+        }]
+    };
+
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+
+<script type="text/javascript">
+
+
+    var dom = document.getElementById("topBox2");
+    var myChart = echarts.init(dom);
+
+    // 指定图表的配置项和数据
+    option = {
+        // title: {
+        //     text: '基础雷达图'
+        // },
+        tooltip: {},
+        legend: {
+            data: ['预算分配（Allocated Budget）', '实际开销（Actual Spending）']
+        },
+        radar: {
+            // shape: 'circle',
+            name: {
+                textStyle: {
+                    color: '#fff',
+                    backgroundColor: '#999',
+                    borderRadius: 3,
+                    padding: [3, 5]
+                }
+            },
+            indicator: [
+                { name: '销售（sales）', max: 6500},
+                { name: '管理（Administration）', max: 16000},
+                { name: '技术（Techology）', max: 30000},
+                { name: '客服（Customer Support）', max: 38000},
+                { name: '研发（Development）', max: 52000},
+                { name: '市场（Marketing）', max: 25000}
+            ]
+        },
+        series: [{
+            name: '预算 vs 开销（Budget vs spending）',
+            type: 'radar',
+            // areaStyle: {normal: {}},
+            data : [
+                {
+                    value : [9300, 15000, 21000, 38000, 40000, 19000],
+                    name : '预算分配（Allocated Budget）'
+                },
+                {
+                    value : [6000, 17000, 18000, 35000, 34000, 27000],
+                    name : '实际开销（Actual Spending）'
+                }
+            ]
+        }]
+    };
+
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+
+<script type="text/javascript">
+
+
+    var dom = document.getElementById("topBox3");
+    var myChart = echarts.init(dom);
+
+    // 指定图表的配置项和数据
+    option = {
+        // title: {
+        //     text: '基础雷达图'
+        // },
+        tooltip: {},
+        legend: {
+            data: ['预算分配（Allocated Budget）', '实际开销（Actual Spending）']
+        },
+        radar: {
+            // shape: 'circle',
+            name: {
+                textStyle: {
+                    color: '#fff',
+                    backgroundColor: '#999',
+                    borderRadius: 3,
+                    padding: [3, 5]
+                }
+            },
+            indicator: [
+                { name: '销售（sales）', max: 6500},
+                { name: '管理（Administration）', max: 16000},
+                { name: '技术（Techology）', max: 30000},
+                { name: '客服（Customer Support）', max: 38000},
+                { name: '研发（Development）', max: 52000},
+                { name: '市场（Marketing）', max: 25000}
+            ]
+        },
+        series: [{
+            name: '预算 vs 开销（Budget vs spending）',
+            type: 'radar',
+            // areaStyle: {normal: {}},
+            data : [
+                {
+                    value : [4300, 10000, 28000, 35000, 50000, 19000],
+                    name : '预算分配（Allocated Budget）'
+                },
+                {
+                    value : [5000, 14000, 28000, 31000, 42000, 21000],
+                    name : '实际开销（Actual Spending）'
+                }
+            ]
+        }]
+    };
+
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+
+<!--表格-->
+<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="dist/excel-bootstrap-table-filter-bundle.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#table').excelTableFilter({
+            'captions':{ a_to_z: '升序排列', z_to_a: '降序排列', search: '搜索', select_all: '全部选择' }
+        });
+        $('#table2').excelTableFilter({
+            'captions':{ a_to_z: '升序排列', z_to_a: '降序排列', search: '搜索', select_all: '全部选择' }
+        });
+        $('#table3').excelTableFilter({
+            'captions':{ a_to_z: '升序排列', z_to_a: '降序排列', search: '搜索', select_all: '全部选择' }
+        });
+    });
+</script>
+
+
+<script>
+    function loadaction() {
+        sleep();
+        loadXMLDoc1();
+        loadXMLDoc2();
+        loadXMLDoc3();
+    }
+    function sleep (time) {
+        return new Promise((resolve) => setTimeout(resolve, time));
+    }
+
+</script>
+
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+</script>
+
+<!--        加载效果-->
+<script>
+    //获取浏览器页面可见高度和宽度
+    var _PageHeight = document.documentElement.clientHeight,
+        _PageWidth = document.documentElement.clientWidth;
+    //计算loading框距离顶部和左部的距离（loading框的宽度为215px，高度为61px）
+    var _LoadingTop = _PageHeight > 61 ? (_PageHeight - 61) / 2 : 0,
+        _LoadingLeft = _PageWidth > 215 ? (_PageWidth - 215) / 2 : 0;
+    //在页面未加载完毕之前显示的loading Html自定义内容
+    var _LoadingHtml = '' +
+        '<div id="loadingDiv" ' +
+        'style="position:absolute;left:0;width:100%;height:' + _PageHeight + '' +
+        'px;top:0;background:#f3f8ff;opacity:1;filter:alpha(opacity=80);z-index:10000;">' +
+        '<div style="position: absolute; cursor1: wait; left: ' + _LoadingLeft + 'px; top:'
+        + _LoadingTop + 'px; width: auto; height: 57px; line-height: 57px; padding-left: 50px; ' +
+        'padding-right: 5px; background: #fff url(./img/about-bg.png) no-repeat scroll 5px 10px; border: 2px solid #95B8E7; color: #696969; font-family:\'Microsoft YaHei\';">正在处理...请等待...</div></div>';
+    //呈现loading效果
+    document.write(_LoadingHtml);
+    //监听加载状态改变
+    document.onreadystatechange = completeLoading;
+
+    //加载状态为complete时移除loading效果
+    function completeLoading() {
+        if (document.readyState == "complete") {
+
+            var loadingMask = document.getElementById('loadingDiv');
+
+            loadingMask.parentNode.removeChild(loadingMask);
+        }
+    }
+</script>
+
+<script type="text/javascript" src="js/mt-tabpage.js"></script>
+<script>
+    function loadXMLDoc1()
+    {
+        //setTimeout(function(){ alert("Hello"); }, 1000);
+        var xmlhttp;
+        if (window.XMLHttpRequest)
+        {
+            //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+            xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {
+            // IE6, IE5 浏览器执行代码
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+                var str = xmlhttp.responseText;
+                var obj = JSON.parse(str);//JSON字符串转JSON对象
+                code1="http://fund.eastmoney.com/"+( "0000000000000000" + document.getElementById(1).innerText ).substr( -6 )+".html?spm=search";
+                document.getElementById(1).innerHTML = ( "0000000000000000" + document.getElementById(1).innerText ).substr( -6 );
+                document.getElementById(2).innerHTML = obj[0].fundName;
+                document.getElementById(3).innerHTML = obj[0].fundIncre;
+                document.getElementById(4).innerHTML = obj[0].fundType;
+                document.getElementById(5).innerHTML = obj[0].fundRisk;
+            }
+        };
+        xmlhttp.open("GET","http://47.100.120.235:8081/mainInfo?fundId="+document.getElementById(1).innerText,true);
+        //xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");
+        xmlhttp.send();
+    }
+</script>
+<script>
+    function loadXMLDoc2()
+    {
+        //setTimeout(function(){ alert("Hello"); }, 1000);
+        var xmlhttp;
+        if (window.XMLHttpRequest)
+        {
+            //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+            xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {
+            // IE6, IE5 浏览器执行代码
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+                var str = xmlhttp.responseText;
+                var obj = JSON.parse(str);//JSON字符串转JSON对象
+                document.getElementById(6).innerHTML = ( "0000000000000000" + document.getElementById(6).innerText ).substr( -6 );
+                document.getElementById(7).innerHTML = obj[0].fundName;
+                document.getElementById(8).innerHTML = obj[0].fundIncre;
+                document.getElementById(9).innerHTML = obj[0].fundType;
+                document.getElementById(10).innerHTML = obj[0].fundRisk;
+            }
+        };
+        xmlhttp.open("GET","http://47.100.120.235:8081/mainInfo?fundId="+document.getElementById(6).innerText,true);
+        //xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");
+        xmlhttp.send();
+    }
+</script>
+
+<script>
+    function loadXMLDoc3()
+    {
+        //setTimeout(function(){ alert("Hello"); }, 1000);
+        var xmlhttp;
+        if (window.XMLHttpRequest)
+        {
+            //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+            xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {
+            // IE6, IE5 浏览器执行代码
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+                var str = xmlhttp.responseText;
+                var obj = JSON.parse(str);//JSON字符串转JSON对象
+                document.getElementById(11).innerHTML = ( "0000000000000000" + document.getElementById(11).innerText ).substr( -6 );
+                document.getElementById(12).innerHTML = obj[0].fundName;
+                document.getElementById(13).innerHTML = obj[0].fundIncre;
+                document.getElementById(14).innerHTML = obj[0].fundType;
+                document.getElementById(15).innerHTML = obj[0].fundRisk;
+            }
+        };
+        xmlhttp.open("GET","http://47.100.120.235:8081/mainInfo?fundId="+document.getElementById(11).innerText,true);
+        //xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");
+        xmlhttp.send();
+    }
+</script>
+
+<script type="text/javascript">
+    $(function () {
+
+        $('[js-tab=2]').tab({
+            mouse: 'over',   //切换方式：over，click
+             autoPlay: false,  //播放方式：false，true
+
+            curDisplay: 1,     //当前第一个打开
+            changeMethod: 'horizontal'  //切换选项：默认default，horizontal，vertical，opacity这4种方式
+        });
+
+        $('[js-tab=3]').tab({
+            curDisplay: 2,
+            changeMethod: 'horizontal'
+        });
+
+    });
+</script>
+</body>
+</html>

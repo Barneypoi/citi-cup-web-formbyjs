@@ -82,13 +82,13 @@ svg{
     flex-wrap: wrap;
 }
 .upbox{
-    height:200px;
+    height:125px;
     width:100%;
     order:1;
     flex-grow: 1;
 }
 .downbox{
-    height:calc(100% - 200px);
+    height:calc(100% - 125px);
     width:100%;
     order:2;
     flex-grow: 1;

@@ -394,127 +394,7 @@
                                         </table>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h2>Table 2</h2>
-                                        <table id="table2" class="table table-bordered table-intel">
-                                            <thead>
-                                            <tr >
-                                                <th class="filter"  style="text-align: center">Animal</th>
-                                                <th class="filter" style="text-align: center">Class</th>
-                                                <th class="filter"style="text-align: center">Collective Noun</th>
-                                                <th class="filter"style="text-align: center">A Number</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>Bear</td>
-                                                <td>Mammal</td>
-                                                <td>Sleuth</td>
-                                                <td>1</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Ant</td>
-                                                <td>Insect</td>
-                                                <td>Army</td>
-                                                <td>2</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Salamander</td>
-                                                <td>Amphibian</td>
-                                                <td>Congress</td>
-                                                <td>3</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Owl</td>
-                                                <td>Bird</td>
-                                                <td>Parliament</td>
-                                                <td>4</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Frog</td>
-                                                <td>Amphibian</td>
-                                                <td>Army</td>
-                                                <td>5</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Shark</td>
-                                                <td>Fish</td>
-                                                <td>Gam</td>
-                                                <td>6</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Kookaburra</td>
-                                                <td>Bird</td>
-                                                <td>Cackle</td>
-                                                <td>7</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Crow</td>
-                                                <td>Bird</td>
-                                                <td>Murder</td>
-                                                <td>8</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Elephant</td>
-                                                <td>Mammal</td>
-                                                <td>Herd</td>
-                                                <td>9</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Barracude</td>
-                                                <td>Fish</td>
-                                                <td>Grist</td>
-                                                <td>10</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h2>Table 3</h2>
-                                        <p>姓名字段只提供搜索，不带过滤和排序</p>
-                                        <table id="table3" class="table table-bordered table-intel">
-                                            <thead>
-                                            <tr>
-                                                <th class="filter">编号</th>
-                                                <th class="no-sort no-filter">姓名</th>
-                                                <th class="filter">成绩</th>
-                                            </tr >
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>张三</td>
-                                                <td>68</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>李四</td>
-                                                <td>75</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>王五</td>
-                                                <td>86</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>赵六</td>
-                                                <td>76</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>韩七</td>
-                                                <td>95</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
                             </div>
-
                         </li>
                     </div>
                     <div class="page" id="p4">
@@ -626,11 +506,11 @@
                 }
             },
             indicator: [
-                { name: '经理水平', max: 6500},
-                { name: '盈利能力', max: 16000},
-                { name: '风险系数', max: 30000},
-                { name: '舆情导向', max: 38000},
-                { name: '公司评估', max: 52000},
+                { name: '经理水平', max: 10},
+                { name: '盈利能力', max: 10},
+                { name: '风险系数', max: 10},
+                { name: '舆情导向', max: 10},
+                { name: '公司评估', max: 10}
             ]
         },
         series: [{
@@ -639,11 +519,11 @@
             // areaStyle: {normal: {}},
             data : [
                 {
-                    value : [4300, 10000, 28000, 35000, 50000],
+                    value : [8, 10, 2, 3, 5],
                     name : '用户'
                 },
                 {
-                    value : [5000, 14000, 28000, 31000, 42000],
+                    value : [8, 4, 8, 3, 4],
                     name : '基金'
                 }
             ]
@@ -668,7 +548,7 @@
         // },
         tooltip: {},
         legend: {
-            data: ['预算分配（Allocated Budget）', '实际开销（Actual Spending）']
+            data: ['用户', '基金']
         },
         radar: {
             // shape: 'circle',
@@ -681,26 +561,25 @@
                 }
             },
             indicator: [
-                { name: '销售（sales）', max: 6500},
-                { name: '管理（Administration）', max: 16000},
-                { name: '技术（Techology）', max: 30000},
-                { name: '客服（Customer Support）', max: 38000},
-                { name: '研发（Development）', max: 52000},
-                { name: '市场（Marketing）', max: 25000}
+                { name: '经理水平', max: 10},
+                { name: '盈利能力', max: 10},
+                { name: '风险系数', max: 10},
+                { name: '舆情导向', max: 10},
+                { name: '公司评估', max: 10}
             ]
         },
         series: [{
-            name: '预算 vs 开销（Budget vs spending）',
+            name: '用户 vs 基金',
             type: 'radar',
             // areaStyle: {normal: {}},
             data : [
                 {
-                    value : [9300, 15000, 21000, 38000, 40000, 19000],
-                    name : '预算分配（Allocated Budget）'
+                    value : [8, 10, 2, 3, 5],
+                    name : '用户'
                 },
                 {
-                    value : [6000, 17000, 18000, 35000, 34000, 27000],
-                    name : '实际开销（Actual Spending）'
+                    value : [6, 7, 5, 3, 2],
+                    name : '基金'
                 }
             ]
         }]
@@ -724,7 +603,7 @@
         // },
         tooltip: {},
         legend: {
-            data: ['预算分配（Allocated Budget）', '实际开销（Actual Spending）']
+            data: ['用户', '基金']
         },
         radar: {
             // shape: 'circle',
@@ -737,26 +616,25 @@
                 }
             },
             indicator: [
-                { name: '销售（sales）', max: 6500},
-                { name: '管理（Administration）', max: 16000},
-                { name: '技术（Techology）', max: 30000},
-                { name: '客服（Customer Support）', max: 38000},
-                { name: '研发（Development）', max: 52000},
-                { name: '市场（Marketing）', max: 25000}
+                { name: '经理水平', max: 10},
+                { name: '盈利能力', max: 10},
+                { name: '风险系数', max: 10},
+                { name: '舆情导向', max: 10},
+                { name: '公司评估', max: 10}
             ]
         },
         series: [{
-            name: '预算 vs 开销（Budget vs spending）',
+            name: '用户 vs 基金',
             type: 'radar',
             // areaStyle: {normal: {}},
             data : [
                 {
-                    value : [4300, 10000, 28000, 35000, 50000, 19000],
-                    name : '预算分配（Allocated Budget）'
+                    value : [8, 10, 2, 3, 5],
+                    name : '用户'
                 },
                 {
-                    value : [5000, 14000, 28000, 31000, 42000, 21000],
-                    name : '实际开销（Actual Spending）'
+                    value : [5, 4, 8, 3, 4],
+                    name : '基金'
                 }
             ]
         }]

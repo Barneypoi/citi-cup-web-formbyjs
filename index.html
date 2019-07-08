@@ -155,16 +155,17 @@
                                     <li class="mt-tabpage-item"style="color: #4984a6;margin: 0;padding: 0">
                                         <div class="container">
                                             <div class="leftbox">
-                                                <div class="upbox">
-                                                    <h1 id="2">name</h1><h3 id="1">1</h3>
+                                                <div class="upbox" style="text-align:center">
+                                                    <h1 style="height:70%" id="2"></h1><h3 id="1">1</h3>
                                                 </div >
                                                 <div  class="downbox">
-                                                        <p>基金涨幅：</p>
-                                                        <p id="3">row 2, cell 2</p>
-                                                        <p>基金类型：</p>
-                                                        <p id="4">row 2, cell 2</p>
-                                                        <p>基金风险：</p>
-                                                        <p id="5">row 2, cell 2</p>
+                                                    <p>基金涨幅： <em id="3"></em></p>
+                                                    <p>基金类型：<em id="4"></em></p>
+                                                    <p>基金风险：<em id="5"></em></p>
+                                                    <p>基金规模：<em id="sca1"></em>(亿元)</p>
+                                                    <p>基金建立时间：<em id="est1"></em></p>
+                                                    <p>基金公司：<em id="com1"></em></p>
+                                                    <p>基金经理：<em id="man1"></em></p>
                                                 </div>
                                             </div>
                                             <div class="rightbox">
@@ -174,7 +175,7 @@
 
                                                     </div>
                                                     <div class="bottomright">
-                                                        <h3><a href="http://fund.eastmoney.com/000001.html?spm=search">更多信息</a></h3>
+                                                        <h3><a href="" onclick="fun_a()" id="link1">更多信息</a></h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -202,7 +203,7 @@
 
                                                 </div>
                                                 <div class="bottomright">
-                                                    <h3><a href="http://fund.eastmoney.com/000003.html?spm=search">更多信息</a></h3>
+                                                    <h3><a href="" onclick="fun_b()" id="link2">更多信息</a></h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -230,7 +231,7 @@
 
                                                     </div>
                                                     <div class="bottomright">
-                                                        <h3><a href="http://fund.eastmoney.com/000005.html?spm=search">更多信息</a></h3>
+                                                        <h3><a href="" onclick="fun_c()" id="link3">更多信息</a></h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -239,6 +240,9 @@
                                 </ul>
                             </div>
                         </div>
+                            <div>
+                                <h1>详细信息</h1>
+                            </div>
                         </li>
 
                     </div>
@@ -566,6 +570,24 @@
 <script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
 
+<script type="text/javascript">
+    function fun_a() {
+        document.getElementById("link1").setAttribute('href',code1);
+    }
+</script>
+
+<script type="text/javascript">
+    function fun_b() {
+        document.getElementById("link2").setAttribute('href',code2);
+    }
+</script>
+
+<script type="text/javascript">
+    function fun_c() {
+        document.getElementById("link3").setAttribute('href',code3);
+    }
+</script>
+
 <!--画图-->
 <script type="text/javascript">
 
@@ -580,7 +602,7 @@
         // },
         tooltip: {},
         legend: {
-            data: ['预算分配（Allocated Budget）', '实际开销（Actual Spending）']
+            data: ['用户', '基金']
         },
         radar: {
             // shape: 'circle',
@@ -593,26 +615,25 @@
                 }
             },
             indicator: [
-                { name: '销售（sales）', max: 6500},
-                { name: '管理（Administration）', max: 16000},
-                { name: '技术（Techology）', max: 30000},
-                { name: '客服（Customer Support）', max: 38000},
-                { name: '研发（Development）', max: 52000},
-                { name: '市场（Marketing）', max: 25000}
+                { name: '经理水平', max: 6500},
+                { name: '盈利能力', max: 16000},
+                { name: '风险系数', max: 30000},
+                { name: '舆情导向', max: 38000},
+                { name: '公司评估', max: 52000},
             ]
         },
         series: [{
-            name: '预算 vs 开销（Budget vs spending）',
+            name: '用户 vs 基金',
             type: 'radar',
             // areaStyle: {normal: {}},
             data : [
                 {
-                    value : [4300, 10000, 28000, 35000, 50000, 19000],
-                    name : '预算分配（Allocated Budget）'
+                    value : [4300, 10000, 28000, 35000, 50000],
+                    name : '用户'
                 },
                 {
-                    value : [5000, 14000, 28000, 31000, 42000, 21000],
-                    name : '实际开销（Actual Spending）'
+                    value : [5000, 14000, 28000, 31000, 42000],
+                    name : '基金'
                 }
             ]
         }]
@@ -757,8 +778,10 @@
     function loadaction() {
         sleep();
         loadXMLDoc1();
+        loadXMLDetail1();
         loadXMLDoc2();
         loadXMLDoc3();
+
     }
     function sleep (time) {
         return new Promise((resolve) => setTimeout(resolve, time));
@@ -831,7 +854,7 @@
             {
                 var str = xmlhttp.responseText;
                 var obj = JSON.parse(str);//JSON字符串转JSON对象
-                code1="http://fund.eastmoney.com/"+( "0000000000000000" + document.getElementById(1).innerText ).substr( -6 )+".html?spm=search";
+                code1='http://fund.eastmoney.com/'+( "0000000000000000" + document.getElementById(1).innerText ).substr( -6 )+'.html?spm=search';
                 document.getElementById(1).innerHTML = ( "0000000000000000" + document.getElementById(1).innerText ).substr( -6 );
                 document.getElementById(2).innerHTML = obj[0].fundName;
                 document.getElementById(3).innerHTML = obj[0].fundIncre;
@@ -840,6 +863,38 @@
             }
         };
         xmlhttp.open("GET","http://47.100.120.235:8081/mainInfo?fundId="+document.getElementById(1).innerText,true);
+        //xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");
+        xmlhttp.send();
+    }
+</script>
+<script>
+    function loadXMLDetail1()
+    {
+        //setTimeout(function(){ alert("Hello"); }, 1000);
+        var xmlhttp;
+        if (window.XMLHttpRequest)
+        {
+            //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+            xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {
+            // IE6, IE5 浏览器执行代码
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+                var str = xmlhttp.responseText;
+                var obj = JSON.parse(str);//JSON字符串转JSON对象
+                document.getElementById("sca1").innerHTML = obj[0].fundScale;
+                document.getElementById("est1").innerHTML = obj[0].fundEstablishTime;
+                document.getElementById("com1").innerHTML = obj[0].funCompany;
+                document.getElementById("man1").innerHTML = obj[0].fundManager;
+            }
+        };
+        xmlhttp.open("GET","http://47.100.120.235:8081/detailInfo?fundId="+document.getElementById(1).innerText,true);
         //xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");
         xmlhttp.send();
     }
@@ -865,6 +920,7 @@
             {
                 var str = xmlhttp.responseText;
                 var obj = JSON.parse(str);//JSON字符串转JSON对象
+                code2='http://fund.eastmoney.com/'+( "0000000000000000" + document.getElementById(6).innerText ).substr( -6 )+'.html?spm=search';
                 document.getElementById(6).innerHTML = ( "0000000000000000" + document.getElementById(6).innerText ).substr( -6 );
                 document.getElementById(7).innerHTML = obj[0].fundName;
                 document.getElementById(8).innerHTML = obj[0].fundIncre;
@@ -899,6 +955,7 @@
             {
                 var str = xmlhttp.responseText;
                 var obj = JSON.parse(str);//JSON字符串转JSON对象
+                code3='http://fund.eastmoney.com/'+( "0000000000000000" + document.getElementById(11).innerText ).substr( -6 )+'.html?spm=search';
                 document.getElementById(11).innerHTML = ( "0000000000000000" + document.getElementById(11).innerText ).substr( -6 );
                 document.getElementById(12).innerHTML = obj[0].fundName;
                 document.getElementById(13).innerHTML = obj[0].fundIncre;

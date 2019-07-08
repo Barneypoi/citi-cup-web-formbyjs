@@ -66,7 +66,7 @@ svg{
   position: relative;
 }
 .leftbox {
-    width: 200px;  /*左侧固定宽度值*/
+    width: 300px;  /*左侧固定宽度值*/
     height: 100%;
     position: absolute;
     display: flex;
@@ -75,7 +75,7 @@ svg{
 }
 .rightbox {
     height: 100%;
-    margin-left: 200px; /*边距值=左侧固定宽度值*/
+    margin-left: 300px; /*边距值=左侧固定宽度值*/
     position: relative;
     display: flex;
     flex-direction:column;

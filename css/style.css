@@ -119,3 +119,7 @@ svg{
     order:2;
     flex-grow:1;
 }
+.fund{
+    font-family:'Montserrat', sans-serif;
+    font-size: 14px;
+}

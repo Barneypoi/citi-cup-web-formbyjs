@@ -444,7 +444,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div style="padding-top: 10%">
+                                        <div>
                                             <ul id="ul1">
                                             </ul>
                                         </div>
@@ -731,8 +731,8 @@
         loadXMLDoc3();
         loadXMLDetail3();
         test = window.loadaction.search;
-        test = test.substring(1);
-        alert(test);
+        userid= test.substring(1);
+        alert(userid);
     }
     function sleep (time) {
         return new Promise((resolve) => setTimeout(resolve, time));

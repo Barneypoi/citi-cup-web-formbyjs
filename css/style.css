@@ -142,10 +142,10 @@ svg{
     font-family:'Montserrat', sans-serif;
     font-size: 14px;
     position: relative;
-
+    padding-top: 0px;
     /*right: 0;*/
 
-    width: 10%;
+    width: 75%;
 
     text-align: center;
     background-color: #3c3c3c;

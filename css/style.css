@@ -138,3 +138,15 @@ svg{
     font-size: 14px;
     position: relative;
 }
+#p3 ul{
+    font-family:'Montserrat', sans-serif;
+    font-size: 14px;
+    position: relative;
+
+    /*right: 0;*/
+
+    width: 10%;
+
+    text-align: center;
+    background-color: #3c3c3c;
+}

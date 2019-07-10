@@ -288,8 +288,11 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-6" style="text-align: center">
-                                        <div >
+                                        <div>
                                             <h5>个人信息</h5>
+
+                                            <p>用户名: <strong id="username">Andy</strong></p>
+                                            <img id="userimg" src="img/item-01.jpg" style="width: 100px;height: 100px">
                                             <p>账号资产(元)<br>
                                                 <em id="accountcredit">10000000</em> </p>
                                             <p>昨日收益(元)<br>
@@ -308,12 +311,12 @@
                                             <h5>自选基金  </h5>
                                             <div class="fund" >
                                                 <a id="chosenfund1">00001</a>
-                                                <i class="icon fa fa-star " style="margin-top: 1%;margin-left:25%;font-size: 20px" onclick="canclestar()"></i>
+                                                <i class="icon fa fa-star " id="fundstar1" style="margin-top: 1%;margin-left:25%;font-size: 20px" onclick="judgestar(this)"></i>
                                             </div>
                                             <br>
                                             <div class="fund" >
                                                 <a id="chosenfund2">00002</a>
-                                                <i class="icon fa fa-star "  style="margin-top: 1%;margin-left:25%;font-size: 20px" onclick="canclestar()"></i>
+                                                <i class="icon fa fa-star " id="fundstar2" style="margin-top: 1%;margin-left:25%;font-size: 20px" onclick="judgestar(this)"></i>
                                             </div>
 <!--                                        <div class="right-image">-->
 <!--                                            <img src="img/right-about-image.png" alt="">-->
@@ -325,41 +328,8 @@
                         </li>
                     </div>
                     <div class="page" id="p3">
-                        <li class="icon fa fa-image"><span class="title">基金搜索</span>
-<!--                            <div class="container">-->
-<!--                                <div class="row">-->
-<!--                                    <div class="col-md-3 col-md-offset-1">-->
-<!--                                        <div class="project-item">-->
-<!--                                            <a href="img/item-01.jpg" data-lightbox="image-1"><img src="img/thumb-01.jpg"></a>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-md-3">-->
-<!--                                        <div class="project-item">-->
-<!--                                            <a href="img/item-02.jpg" data-lightbox="image-1"><img src="img/thumb-02.jpg"></a>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-md-4">-->
-<!--                                        <div class="project-item">-->
-<!--                                            <a href="img/item-03.jpg" data-lightbox="image-1"><img src="img/thumb-03.jpg"></a>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-md-4 col-md-offset-1">-->
-<!--                                        <div class="project-item">-->
-<!--                                            <a href="img/item-04.jpg" data-lightbox="image-1"><img src="img/thumb-04.jpg"></a>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-md-3">-->
-<!--                                        <div class="project-item">-->
-<!--                                            <a href="img/item-05.jpg" data-lightbox="image-1"><img src="img/thumb-05.jpg"></a>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-md-3">-->
-<!--                                        <div class="project-item last-project">-->
-<!--                                            <a href="img/item-06.jpg" data-lightbox="image-1"><img src="img/thumb-06.jpg"></a>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
+                        <li class="icon fa fa-line-chart"><span class="title">基金搜索</span>
+
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -371,79 +341,6 @@
                                             </div>
                                         </div>
 
-<!--                                        <h2>Table 1</h2>-->
-<!--                                        <table id="table" class="table table-bordered table-intel">-->
-<!--                                            <thead>-->
-<!--                                            <tr>-->
-<!--                                                <th class="filter" >基金代码：</th>-->
-<!--                                                <th class="filter">基金名：</th>-->
-<!--                                                <th class="filter">基金风险：</th>-->
-<!--                                                <th class="filter">基金</th>-->
-<!--                                            </tr>-->
-<!--                                            </thead>-->
-<!--                                            <tbody>-->
-<!--                                            <tr>-->
-<!--                                                <td>Bear</td>-->
-<!--                                                <td>Mammal</td>-->
-<!--                                                <td>Sleuth</td>-->
-<!--                                                <td>1</td>-->
-<!--                                            </tr>-->
-<!--                                            <tr>-->
-<!--                                                <td>Ant</td>-->
-<!--                                                <td>Insect</td>-->
-<!--                                                <td>Army</td>-->
-<!--                                                <td>2</td>-->
-<!--                                            </tr>-->
-<!--                                            <tr>-->
-<!--                                                <td>Salamander</td>-->
-<!--                                                <td>Amphibian</td>-->
-<!--                                                <td>Congress</td>-->
-<!--                                                <td>3</td>-->
-<!--                                            </tr>-->
-<!--                                            <tr>-->
-<!--                                                <td>Owl</td>-->
-<!--                                                <td>Bird</td>-->
-<!--                                                <td>Parliament</td>-->
-<!--                                                <td>4</td>-->
-<!--                                            </tr>-->
-<!--                                            <tr>-->
-<!--                                                <td>Frog</td>-->
-<!--                                                <td>Amphibian</td>-->
-<!--                                                <td>Army</td>-->
-<!--                                                <td>5</td>-->
-<!--                                            </tr>-->
-<!--                                            <tr>-->
-<!--                                                <td>Shark</td>-->
-<!--                                                <td>Fish</td>-->
-<!--                                                <td>Gam</td>-->
-<!--                                                <td>6</td>-->
-<!--                                            </tr>-->
-<!--                                            <tr>-->
-<!--                                                <td>Kookaburra</td>-->
-<!--                                                <td>Bird</td>-->
-<!--                                                <td>Cackle</td>-->
-<!--                                                <td>7</td>-->
-<!--                                            </tr>-->
-<!--                                            <tr>-->
-<!--                                                <td>Crow</td>-->
-<!--                                                <td>Bird</td>-->
-<!--                                                <td>Murder</td>-->
-<!--                                                <td>8</td>-->
-<!--                                            </tr>-->
-<!--                                            <tr>-->
-<!--                                                <td>Elephant</td>-->
-<!--                                                <td>Mammal</td>-->
-<!--                                                <td>Herd</td>-->
-<!--                                                <td>9</td>-->
-<!--                                            </tr>-->
-<!--                                            <tr>-->
-<!--                                                <td>Barracude</td>-->
-<!--                                                <td>Fish</td>-->
-<!--                                                <td>Grist</td>-->
-<!--                                                <td>10</td>-->
-<!--                                            </tr>-->
-<!--                                            </tbody>-->
-<!--                                        </table>-->
                                     </div>
                                 </div>
                                 <div class="row">
@@ -505,9 +402,7 @@
 <!--                            </div>-->
 <!--                        </li>-->
 <!--                    </div>-->
-                    <!--                  <p class="credit">Copyright &copy; 2017 Company Name -->
-                    <!--                        -->
-                    <!--                        - Designed by <a href="http://www.tooplate.com" target="_parent">Tooplate</a></p>-->
+
                 </section>
             </div>
         </div>
@@ -1017,6 +912,14 @@
         });
 
     });
+</script>
+
+<!--用户信息界面取消收藏和恢复收藏-->
+<script type="text/javascript">
+    function judgestar(element){
+            element.
+    }
+
 </script>
 </body>
 </html>

@@ -53,4 +53,3 @@ function getId(obj) {
     xmlhttp.open("GET", "http://47.100.120.235:8081/detailInfo?fundId=" + oid, true);
     xmlhttp.send();
 }
-

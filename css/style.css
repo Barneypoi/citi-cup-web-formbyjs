@@ -150,3 +150,8 @@ svg{
     text-align: center;
     background-color: #3c3c3c;
 }
+#p3 ol{
+    background-color: #2e0826;
+    font-family:'Montserrat', sans-serif;
+    font-size: 20px;
+}

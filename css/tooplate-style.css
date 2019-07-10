@@ -302,7 +302,18 @@ a {
 }
 
 #p2 .primary-button {
-  margin-bottom: 30px;
+	font-family: 'Montserrat', sans-serif;
+	/*display: inline-block;*/
+	padding: 15px 25px;
+	background-color: #63adcc;
+	color: #fff;
+	font-size: 11px;
+	text-transform: uppercase;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	border-radius: 25px;
+	border: 1px solid transparent;
+	text-decoration: none;
 }
 
 #p2 .right-image {
@@ -352,6 +363,20 @@ a {
 #p3 .project-item img {
 	width: 100%;
 	overflow: hidden;
+}
+
+#p3 .primary-button {
+	font-family: 'Montserrat', sans-serif;
+	/*display: inline-block;*/
+	background-color: #63adcc;
+	color: #fff;
+	font-size: 11px;
+	text-transform: uppercase;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	border-radius: 25px;
+	border: 1px solid transparent;
+	text-decoration: none;
 }
 
 #p3 .last-project {

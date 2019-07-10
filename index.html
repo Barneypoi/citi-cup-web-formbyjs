@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="dist/excel-bootstrap-table-filter-style.css" />
     <script src="js/vendor/echarts.js"></script>
     <script src="js/search.js"></script>
+    <script src="js/delete.js"></script>
     <script>
         var code1,code2,code3;
     </script>
@@ -324,7 +325,7 @@
                         </li>
                     </div>
                     <div class="page" id="p3">
-                        <li class="icon fa fa-image"><span class="title">Our Gallery</span>
+                        <li class="icon fa fa-image"><span class="title">基金搜索</span>
 <!--                            <div class="container">-->
 <!--                                <div class="row">-->
 <!--                                    <div class="col-md-3 col-md-offset-1">-->
@@ -364,7 +365,10 @@
                                     <div class="col-md-12">
                                         <div id="box">
                                             <input type="text" name="search" id="searchBox" placeholder="请输入关键字">
-                                            <div><button onclick="search()">搜索</button></div>
+                                            <div>
+                                                <button class="primary-button a" onclick="search()">搜索</button>
+                                                <button class="primary-button a" onclick="deleteLi()">清空</button>
+                                            </div>
                                         </div>
 
 <!--                                        <h2>Table 1</h2>-->
@@ -445,8 +449,9 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div>
-                                            <ul id="ul1">
-                                            </ul>
+                                            <ol id="ul1">
+                                                <li>点击查看详细信息</li>
+                                            </ol>
                                         </div>
                                     </div>
                                 </div>

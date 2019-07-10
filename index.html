@@ -289,6 +289,8 @@
                                     <div class="col-md-6" style="text-align: center">
                                         <div >
                                             <h5>个人信息</h5>
+                                            <img id="userimg" style="height: 100px;width: 100px;" src="img/item-01.jpg">
+                                            <p>用户名：<strong id="username">Andy</strong></p>
                                             <p>账号资产(元)<br>
                                                 <em id="accountcredit">10000000</em> </p>
                                             <p>昨日收益(元)<br>
@@ -307,13 +309,14 @@
                                             <h5>自选基金  </h5>
                                             <div class="fund" >
                                                 <a id="chosenfund1">00001</a>
-                                                <i class="icon fa fa-star " style="margin-top: 1%;margin-left:25%;font-size: 20px" onclick="canclestar()"></i>
+                                                <i class="icon fa fa-star " style="margin-top: 1%;margin-left:25%;font-size: 20px" onclick="judgestar(this)"></i>
                                             </div>
                                             <br>
                                             <div class="fund" >
                                                 <a id="chosenfund2">00002</a>
-                                                <i class="icon fa fa-star "  style="margin-top: 1%;margin-left:25%;font-size: 20px" onclick="canclestar()"></i>
+                                                <i class="icon fa fa-star "  style="margin-top: 1%;margin-left:25%;font-size: 20px" onclick="judgestar(this)"></i>
                                             </div>
+                                            <button class="primary-button">view </button>
 <!--                                        <div class="right-image">-->
 <!--                                            <img src="img/right-about-image.png" alt="">-->
 <!--                                        </div>-->
@@ -324,7 +327,7 @@
                         </li>
                     </div>
                     <div class="page" id="p3">
-                        <li class="icon fa fa-image"><span class="title">Our Gallery</span>
+                        <li class="icon fa fa-line-chart"><span class="title">基金搜索</span>
 <!--                            <div class="container">-->
 <!--                                <div class="row">-->
 <!--                                    <div class="col-md-3 col-md-offset-1">-->
@@ -445,8 +448,8 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div>
-                                            <ul id="ul1">
-                                            </ul>
+                                            <ol id="ul1">
+                                            </ol>
                                         </div>
                                     </div>
                                 </div>
@@ -1013,5 +1016,12 @@
 
     });
 </script>
+
+<script type="text/javascript">
+    function judgestar() {
+        document.getElementById()
+    }
+</script>
+
 </body>
 </html>

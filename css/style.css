@@ -148,5 +148,11 @@ svg{
     width: 75%;
 
     text-align: center;
-    background-color: #3c3c3c;
+
+}
+#p3 ol{
+    background-color: #0a152e;
+    font-family:'Montserrat', sans-serif;
+    font-size: 20px;
+
 }

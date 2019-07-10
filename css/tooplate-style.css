@@ -302,7 +302,19 @@ a {
 }
 
 #p2 .primary-button {
-  margin-bottom: 30px;
+
+	font-family: 'Montserrat', sans-serif;
+	/*display: inline-block;*/
+
+	background-color: #63adcc;
+	color: #fff;
+	font-size: 11px;
+	text-transform: uppercase;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	border-radius: 25px;
+	border: 1px solid transparent;
+	text-decoration: none;
 }
 
 #p2 .right-image {

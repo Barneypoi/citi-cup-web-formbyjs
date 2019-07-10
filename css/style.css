@@ -98,7 +98,6 @@ svg{
     height:400px;
     order:1;
     flex-grow:1;
-    background: #fff9f8;
 }
 .bottombox{
     width:100%;
@@ -118,4 +117,17 @@ svg{
     height:100%;
     order:2;
     flex-grow:1;
+}
+.detail{
+    font-size: 40px;
+    color: #fff9f8;
+    align-self: center;
+}
+.box{
+    width: 100%;  /*左侧固定宽度值*/
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction:column;
+    flex-wrap: wrap;
 }

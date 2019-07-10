@@ -346,81 +346,86 @@
                                     <div class="col-md-12">
                                         <div id="box">
                                             <input type="text" name="search" id="searchBox" placeholder="请输入关键字">
-                                            <div><button onclick="search()">搜索</button>></div>
+                                            <div><button onclick="search()">搜索</button></div>
                                         </div>
-                                        <h2>Table 1</h2>
-                                        <table id="table" class="table table-bordered table-intel">
-                                            <thead>
-                                            <tr>
-                                                <th class="filter" >Animal</th>
-                                                <th class="filter">Class</th>
-                                                <th class="filter">Collective Noun</th>
-                                                <th class="filter">A Number</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>Bear</td>
-                                                <td>Mammal</td>
-                                                <td>Sleuth</td>
-                                                <td>1</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Ant</td>
-                                                <td>Insect</td>
-                                                <td>Army</td>
-                                                <td>2</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Salamander</td>
-                                                <td>Amphibian</td>
-                                                <td>Congress</td>
-                                                <td>3</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Owl</td>
-                                                <td>Bird</td>
-                                                <td>Parliament</td>
-                                                <td>4</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Frog</td>
-                                                <td>Amphibian</td>
-                                                <td>Army</td>
-                                                <td>5</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Shark</td>
-                                                <td>Fish</td>
-                                                <td>Gam</td>
-                                                <td>6</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Kookaburra</td>
-                                                <td>Bird</td>
-                                                <td>Cackle</td>
-                                                <td>7</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Crow</td>
-                                                <td>Bird</td>
-                                                <td>Murder</td>
-                                                <td>8</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Elephant</td>
-                                                <td>Mammal</td>
-                                                <td>Herd</td>
-                                                <td>9</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Barracude</td>
-                                                <td>Fish</td>
-                                                <td>Grist</td>
-                                                <td>10</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
+                                        <div>
+                                            <ul>
+                                                <li>1</li>
+                                            </ul>
+                                        </div>
+<!--                                        <h2>Table 1</h2>-->
+<!--                                        <table id="table" class="table table-bordered table-intel">-->
+<!--                                            <thead>-->
+<!--                                            <tr>-->
+<!--                                                <th class="filter" >基金代码：</th>-->
+<!--                                                <th class="filter">基金名：</th>-->
+<!--                                                <th class="filter">基金风险：</th>-->
+<!--                                                <th class="filter">基金</th>-->
+<!--                                            </tr>-->
+<!--                                            </thead>-->
+<!--                                            <tbody>-->
+<!--                                            <tr>-->
+<!--                                                <td>Bear</td>-->
+<!--                                                <td>Mammal</td>-->
+<!--                                                <td>Sleuth</td>-->
+<!--                                                <td>1</td>-->
+<!--                                            </tr>-->
+<!--                                            <tr>-->
+<!--                                                <td>Ant</td>-->
+<!--                                                <td>Insect</td>-->
+<!--                                                <td>Army</td>-->
+<!--                                                <td>2</td>-->
+<!--                                            </tr>-->
+<!--                                            <tr>-->
+<!--                                                <td>Salamander</td>-->
+<!--                                                <td>Amphibian</td>-->
+<!--                                                <td>Congress</td>-->
+<!--                                                <td>3</td>-->
+<!--                                            </tr>-->
+<!--                                            <tr>-->
+<!--                                                <td>Owl</td>-->
+<!--                                                <td>Bird</td>-->
+<!--                                                <td>Parliament</td>-->
+<!--                                                <td>4</td>-->
+<!--                                            </tr>-->
+<!--                                            <tr>-->
+<!--                                                <td>Frog</td>-->
+<!--                                                <td>Amphibian</td>-->
+<!--                                                <td>Army</td>-->
+<!--                                                <td>5</td>-->
+<!--                                            </tr>-->
+<!--                                            <tr>-->
+<!--                                                <td>Shark</td>-->
+<!--                                                <td>Fish</td>-->
+<!--                                                <td>Gam</td>-->
+<!--                                                <td>6</td>-->
+<!--                                            </tr>-->
+<!--                                            <tr>-->
+<!--                                                <td>Kookaburra</td>-->
+<!--                                                <td>Bird</td>-->
+<!--                                                <td>Cackle</td>-->
+<!--                                                <td>7</td>-->
+<!--                                            </tr>-->
+<!--                                            <tr>-->
+<!--                                                <td>Crow</td>-->
+<!--                                                <td>Bird</td>-->
+<!--                                                <td>Murder</td>-->
+<!--                                                <td>8</td>-->
+<!--                                            </tr>-->
+<!--                                            <tr>-->
+<!--                                                <td>Elephant</td>-->
+<!--                                                <td>Mammal</td>-->
+<!--                                                <td>Herd</td>-->
+<!--                                                <td>9</td>-->
+<!--                                            </tr>-->
+<!--                                            <tr>-->
+<!--                                                <td>Barracude</td>-->
+<!--                                                <td>Fish</td>-->
+<!--                                                <td>Grist</td>-->
+<!--                                                <td>10</td>-->
+<!--                                            </tr>-->
+<!--                                            </tbody>-->
+<!--                                        </table>-->
                                     </div>
                                 </div>
                             </div>
@@ -694,6 +699,7 @@
 
 
 <script>
+    var test;
     function loadaction() {
         sleep();
         loadXMLDoc1();
@@ -702,7 +708,9 @@
         loadXMLDetail2();
         loadXMLDoc3();
         loadXMLDetail3();
-
+        test = window.loadaction.search;
+        test = test.substring(1);
+        alert(test);
     }
     function sleep (time) {
         return new Promise((resolve) => setTimeout(resolve, time));

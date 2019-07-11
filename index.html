@@ -182,36 +182,67 @@
                             </div>
                             <div class="mt-tabpage-count" style="color: #4984a6;margin: 0;padding: 0">
                                 <ul class="mt-tabpage-cont__wrap" style="color: #4984a6;margin: 0;padding: 0">
+
                                     <li class="mt-tabpage-item"style="color: #4984a6;margin: 0;padding: 0">
                                         <div class="container">
-                                            <div class="leftbox">
-                                                <div class="upbox" style="text-align:center">
-                                                    <h2 style="height:50%" id="nam1"></h2><h3 id="no1">1</h3>
-                                                </div >
-                                                <div  class="downbox">
+                                            <div class="row" style="margin-top: 5%">
+                                                <div class="col-md-6">
+                                                    <div class="topbox" id="bargraph1"></div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="topbox" id="topBox"></div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <h2 style="height:10%" id="nam1"></h2><h3 id="no1">1</h3>
                                                     <p>基金涨幅： <em id="inc1"></em></p>
                                                     <p>基金类型：<em id="typ1"></em></p>
                                                     <p>基金风险：<em id="ris1"></em></p>
                                                     <p>基金规模：<em id="sca1"></em>(亿元)</p>
                                                     <p>基金建立时间：<em id="est1"></em></p>
+
+                                                </div>
+                                                <div class="col-md-6" >
                                                     <p>基金公司：<em id="com1"></em></p>
                                                     <p>基金经理：<em id="man1"></em></p>
+                                                    <p>股票率：<em id="sto1"></em></p>
+                                                    <p>债券率：<em id="bon1"></em></p>
+                                                    <p>现金率：<em id="cas1"></em></p>
+                                                    <h3><a href="" onclick="fun_a()" id="link1">更多信息</a></h3>
                                                 </div>
                                             </div>
-                                            <div class="rightbox">
-                                                <div class="topbox" id="topBox"></div>
-                                                <div class="bottombox">
-                                                    <div class="bottomleft">
-                                                        <p>股票率：<em id="sto1"></em></p>
-                                                        <p>债券率：<em id="bon1"></em></p>
-                                                        <p>现金率：<em id="cas1"></em></p>
-                                                        <h3><a href="" onclick="fun_a()" id="link1">更多信息</a></h3>
-                                                    </div>
-                                                    <div class="bottomright">
-                                                        <p style="font-size:20px">STYLE</p>
-                                                    </div>
-                                                </div>
-                                            </div>
+
+
+<!--                                            <div class="leftbox">-->
+<!--&lt;!&ndash;                                                <div class="topbox" id="bargraph1"></div>&ndash;&gt;-->
+<!--                                                <div class="upbox" style="text-align:center">-->
+<!--&lt;!&ndash;                                                    <h2 style="height:50%" id="nam1"></h2><h3 id="no1">1</h3>&ndash;&gt;-->
+<!--                                                </div >-->
+<!--                                                <div  class="downbox">-->
+<!--                                                    <p>基金涨幅： <em id="inc1"></em></p>-->
+<!--                                                    <p>基金类型：<em id="typ1"></em></p>-->
+<!--                                                    <p>基金风险：<em id="ris1"></em></p>-->
+<!--                                                    <p>基金规模：<em id="sca1"></em>(亿元)</p>-->
+<!--                                                    <p>基金建立时间：<em id="est1"></em></p>-->
+<!--                                                    <p>基金公司：<em id="com1"></em></p>-->
+<!--                                                    <p>基金经理：<em id="man1"></em></p>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                            <div class="rightbox">-->
+<!--&lt;!&ndash;                                                <div class="topbox" id="topBox"></div>&ndash;&gt;-->
+<!--                                                <div class="bottombox">-->
+<!--                                                    <div class="bottomleft">-->
+<!--                                                        <p>股票率：<em id="sto1"></em></p>-->
+<!--                                                        <p>债券率：<em id="bon1"></em></p>-->
+<!--                                                        <p>现金率：<em id="cas1"></em></p>-->
+<!--                                                        <h3><a href="" onclick="fun_a()" id="link1">更多信息</a></h3>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="bottomright">-->
+<!--                                                        <p style="font-size:20px">STYLE</p>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
                                         </div>
                                     </li>
                                     <li class="mt-tabpage-item"style="color: #4984a6;margin: 0;padding: 0">
@@ -437,6 +468,51 @@
 </script>
 
 <!--画图-->
+<script type="text/javascript">
+    var dom = document.getElementById("bargraph1");
+    var myChart = echarts.init(dom);
+
+    option = {
+        color: ['#3398DB'],
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                data : ['第一季度', '第二季度', '第三季度', '第四季度',],
+                axisTick: {
+                    alignWithLabel: true
+                }
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value'
+            }
+        ],
+        series : [
+            {
+                name:'规模（万）',
+                type:'bar',
+                barWidth: '60%',
+                data:[10, 52, 200, 334]
+            }
+        ]
+    };
+
+    myChart.setOption(option);
+</script>
+
 <script type="text/javascript">
 
 

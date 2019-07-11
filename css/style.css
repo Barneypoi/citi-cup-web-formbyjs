@@ -46,7 +46,7 @@ svg{
 .mt-tabpage-count {
   position: relative;
   width: 900px;
-  height: 600px;
+  height: 800px;
   overflow: hidden;
 }
 .mt-tabpage-cont__wrap {
@@ -61,12 +61,13 @@ svg{
 }
 .container {
   width: 1000px;
-  height: 700px;
+  height:100%;
   margin: 0 auto;
-  position: relative;
+
+
 }
 .leftbox {
-    width: 300px;  /*左侧固定宽度值*/
+    width: 400px;  /*左侧固定宽度值*/
     height: 100%;
     position: absolute;
     display: flex;
@@ -75,20 +76,20 @@ svg{
 }
 .rightbox {
     height: 100%;
-    margin-left: 300px; /*边距值=左侧固定宽度值*/
+    margin-left: 400px; /*边距值=左侧固定宽度值*/
     position: relative;
     display: flex;
     flex-direction:column;
     flex-wrap: wrap;
 }
 .upbox{
-    height:125px;
+    height:100%;
     width:100%;
     order:1;
     flex-grow: 1;
 }
 .downbox{
-    height:calc(100% - 125px);
+    height:100%;
     width:100%;
     order:2;
     flex-grow: 1;
@@ -156,4 +157,9 @@ svg{
     font-size: 20px;
 
 }
+#p1 p{
+    font-family:'Montserrat', sans-serif,bold;
+    font-size: 20px;
 
+
+}

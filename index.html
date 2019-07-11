@@ -623,16 +623,15 @@
 <script>
     var test;
     function loadaction() {
-        sleep();
         loadXMLDoc1();
         loadXMLDetail1();
         loadXMLDoc2();
         loadXMLDetail2();
         loadXMLDoc3();
         loadXMLDetail3();
+        readstar();
         test = window.loadaction.search;
         userid= test.substring(1);
-        alert(userid);
     }
     function sleep (time) {
         return new Promise((resolve) => setTimeout(resolve, time));
@@ -914,12 +913,74 @@
     });
 </script>
 
-<!--用户信息界面取消收藏和恢复收藏-->
 <script type="text/javascript">
-    function judgestar(element){
-            element.
+    function readstar(){
+        var xmlhttp;
+        var timestamp = Date.parse(new Date());
+        if (window.XMLHttpRequest) {
+            // //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // IE6, IE5 浏览器执行代码
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 1){
+                alert("1");
+            }
+            if (xmlhttp.readyState == 2){
+                alert("2");
+            }
+            if (xmlhttp.readyState == 3){
+                alert("3");
+            }
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                alert(xmlhttp.responseText);
+        }
+        xmlhttp.open("POST","http://47.100.120.235:8081/collection",true);
+        xmlhttp.send("uuid=111&operation=read&fundId=*&date="+timestamp);//uuid待改动
     }
 
+</script>
+
+<!--用户信息界面取消收藏-->
+<script type="text/javascript">
+    function judgestar(element) {
+        var xmlhttp;
+        var timestamp = Date.parse(new Date());
+        if (element.class == "icon fa fa-star") {//如果已star
+            if (window.XMLHttpRequest) {
+                // //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // IE6, IE5 浏览器执行代码
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+                }
+            }
+            xmlhttp.open("POST", "http://47.100.120.235:8081/collection", true);
+            xmlhttp.send("uuid="+userid+"&operation=delete&fundId="+element."&date=" + timestamp);
+        }
+        else{//如果未star
+            if (window.XMLHttpRequest) {
+                // //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // IE6, IE5 浏览器执行代码
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+                }
+            }
+            xmlhttp.open("POST", "http://47.100.120.235:8081/collection", true);
+            xmlhttp.send("uuid="+userid+"&operation=add&fundId="+element."&date=" + timestamp);
+        }
+    }
 </script>
 </body>
 </html>

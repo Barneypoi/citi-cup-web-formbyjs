@@ -68,6 +68,7 @@ function readstar()
                 }
             }
             xmlhttp.open("POST", "http://47.100.120.235:8081/collection", true);
-            xmlhttp.send("uuid="+userid+"&operation=delete&fundId="+element.id+"&date=" + timestamp);
+            xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            xmlhttp.send("uuid=a46cbf1c-a396-11e9-b69b-f42cb030f26f&operation=delete&fundId="+element.id+"&date=" + timestamp);
         }
     }

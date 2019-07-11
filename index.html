@@ -186,12 +186,12 @@
                                         <div class="container">
                                             <div class="leftbox">
                                                 <div class="upbox" style="text-align:center">
-                                                    <h2 style="height:50%" id="2"></h2><h3 id="1">1</h3>
+                                                    <h2 style="height:50%" id="nam1"></h2><h3 id="no1">1</h3>
                                                 </div >
                                                 <div  class="downbox">
-                                                    <p>基金涨幅： <em id="3"></em></p>
-                                                    <p>基金类型：<em id="4"></em></p>
-                                                    <p>基金风险：<em id="5"></em></p>
+                                                    <p>基金涨幅： <em id="inc1"></em></p>
+                                                    <p>基金类型：<em id="typ1"></em></p>
+                                                    <p>基金风险：<em id="ris1"></em></p>
                                                     <p>基金规模：<em id="sca1"></em>(亿元)</p>
                                                     <p>基金建立时间：<em id="est1"></em></p>
                                                     <p>基金公司：<em id="com1"></em></p>
@@ -218,12 +218,12 @@
                                         <div class="container">
                                             <div class="leftbox">
                                                 <div class="upbox" style="text-align:center">
-                                                    <h2 style="height:50%" id="7"></h2><h3 id="6">3</h3>
+                                                    <h2 style="height:50%" id="nam2"></h2><h3 id="no2">3</h3>
                                                 </div >
                                                 <div  class="downbox">
-                                                    <p>基金涨幅： <em id="8"></em></p>
-                                                    <p>基金类型：<em id="9"></em></p>
-                                                    <p>基金风险：<em id="10"></em></p>
+                                                    <p>基金涨幅： <em id="inc2"></em></p>
+                                                    <p>基金类型：<em id="typ2"></em></p>
+                                                    <p>基金风险：<em id="ris2"></em></p>
                                                     <p>基金规模：<em id="sca2"></em>(亿元)</p>
                                                     <p>基金建立时间：<em id="est2"></em></p>
                                                     <p>基金公司：<em id="com2"></em></p>
@@ -250,12 +250,12 @@
                                         <div class="container">
                                             <div class="leftbox">
                                                 <div class="upbox" style="text-align:center">
-                                                    <h2 style="height:50%" id="12"></h2><h3 id="11">5</h3>
+                                                    <h2 style="height:50%" id="nam3"></h2><h3 id="no3">5</h3>
                                                 </div >
                                                 <div  class="downbox">
-                                                    <p>基金涨幅： <em id="13"></em></p>
-                                                    <p>基金类型：<em id="14"></em></p>
-                                                    <p>基金风险：<em id="15"></em></p>
+                                                    <p>基金涨幅： <em id="inc3"></em></p>
+                                                    <p>基金类型：<em id="typ3"></em></p>
+                                                    <p>基金风险：<em id="ris3"></em></p>
                                                     <p>基金规模：<em id="sca3"></em>(亿元)</p>
                                                     <p>基金建立时间：<em id="est3"></em></p>
                                                     <p>基金公司：<em id="com3"></em></p>
@@ -704,15 +704,15 @@
             {
                 var str = xmlhttp.responseText;
                 var obj = JSON.parse(str);//JSON字符串转JSON对象
-                code1='http://fund.eastmoney.com/'+( "0000000000000000" + document.getElementById(1).innerText ).substr( -6 )+'.html?spm=search';
-                document.getElementById(1).innerHTML = ( "0000000000000000" + document.getElementById(1).innerText ).substr( -6 );
-                document.getElementById(2).innerHTML = obj[0].fundName;
-                document.getElementById(3).innerHTML = obj[0].fundIncre;
-                document.getElementById(4).innerHTML = obj[0].fundType;
-                document.getElementById(5).innerHTML = obj[0].fundRisk;
+                code1='http://fund.eastmoney.com/'+( "0000000000000000" + document.getElementById("no1").innerText ).substr( -6 )+'.html?spm=search';
+                document.getElementById("no1").innerHTML = ( "0000000000000000" + document.getElementById("no1").innerText ).substr( -6 );
+                document.getElementById("nam1").innerHTML = obj[0].fundName;
+                document.getElementById("inc1").innerHTML = obj[0].fundIncre;
+                document.getElementById("typ1").innerHTML = obj[0].fundType;
+                document.getElementById("ris1").innerHTML = obj[0].fundRisk;
             }
         };
-        xmlhttp.open("GET","http://47.100.120.235:8081/mainInfo?fundId="+document.getElementById(1).innerText,true);
+        xmlhttp.open("GET","http://47.100.120.235:8081/mainInfo?fundId="+document.getElementById("no1").innerText,true);
         //xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");
         xmlhttp.send();
     }
@@ -748,7 +748,7 @@
                 document.getElementById("cas1").innerHTML = obj[0].cashRatio;
             }
         };
-        xmlhttp.open("GET","http://47.100.120.235:8081/detailInfo?fundId="+document.getElementById(1).innerText,true);
+        xmlhttp.open("GET","http://47.100.120.235:8081/detailInfo?fundId="+document.getElementById("no1").innerText,true);
         //xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");
         xmlhttp.send();
     }
@@ -774,15 +774,15 @@
             {
                 var str = xmlhttp.responseText;
                 var obj = JSON.parse(str);//JSON字符串转JSON对象
-                code2='http://fund.eastmoney.com/'+( "0000000000000000" + document.getElementById(6).innerText ).substr( -6 )+'.html?spm=search';
-                document.getElementById(6).innerHTML = ( "0000000000000000" + document.getElementById(6).innerText ).substr( -6 );
-                document.getElementById(7).innerHTML = obj[0].fundName;
-                document.getElementById(8).innerHTML = obj[0].fundIncre;
-                document.getElementById(9).innerHTML = obj[0].fundType;
-                document.getElementById(10).innerHTML = obj[0].fundRisk;
+                code2='http://fund.eastmoney.com/'+( "0000000000000000" + document.getElementById("no2").innerText ).substr( -6 )+'.html?spm=search';
+                document.getElementById("no2").innerHTML = ( "0000000000000000" + document.getElementById("no2").innerText ).substr( -6 );
+                document.getElementById("nam2").innerHTML = obj[0].fundName;
+                document.getElementById("inc2").innerHTML = obj[0].fundIncre;
+                document.getElementById("typ2").innerHTML = obj[0].fundType;
+                document.getElementById("ris2").innerHTML = obj[0].fundRisk;
             }
         };
-        xmlhttp.open("GET","http://47.100.120.235:8081/mainInfo?fundId="+document.getElementById(6).innerText,true);
+        xmlhttp.open("GET","http://47.100.120.235:8081/mainInfo?fundId="+document.getElementById("no2").innerText,true);
         //xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");
         xmlhttp.send();
     }
@@ -817,7 +817,7 @@
                 document.getElementById("cas2").innerHTML = obj[0].cashRatio;
             }
         };
-        xmlhttp.open("GET","http://47.100.120.235:8081/detailInfo?fundId="+document.getElementById(6).innerText,true);
+        xmlhttp.open("GET","http://47.100.120.235:8081/detailInfo?fundId="+document.getElementById("no2").innerText,true);
         //xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");
         xmlhttp.send();
     }
@@ -844,15 +844,15 @@
             {
                 var str = xmlhttp.responseText;
                 var obj = JSON.parse(str);//JSON字符串转JSON对象
-                code3='http://fund.eastmoney.com/'+( "0000000000000000" + document.getElementById(11).innerText ).substr( -6 )+'.html?spm=search';
-                document.getElementById(11).innerHTML = ( "0000000000000000" + document.getElementById(11).innerText ).substr( -6 );
-                document.getElementById(12).innerHTML = obj[0].fundName;
-                document.getElementById(13).innerHTML = obj[0].fundIncre;
-                document.getElementById(14).innerHTML = obj[0].fundType;
-                document.getElementById(15).innerHTML = obj[0].fundRisk;
+                code3='http://fund.eastmoney.com/'+( "0000000000000000" + document.getElementById("no3").innerText ).substr( -6 )+'.html?spm=search';
+                document.getElementById("no3").innerHTML = ( "0000000000000000" + document.getElementById("no3").innerText ).substr( -6 );
+                document.getElementById("nam3").innerHTML = obj[0].fundName;
+                document.getElementById("inc3").innerHTML = obj[0].fundIncre;
+                document.getElementById("typ3").innerHTML = obj[0].fundType;
+                document.getElementById("ris3").innerHTML = obj[0].fundRisk;
             }
         };
-        xmlhttp.open("GET","http://47.100.120.235:8081/mainInfo?fundId="+document.getElementById(11).innerText,true);
+        xmlhttp.open("GET","http://47.100.120.235:8081/mainInfo?fundId="+document.getElementById("no3").innerText,true);
         //xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");
         xmlhttp.send();
     }
@@ -888,7 +888,7 @@
                 document.getElementById("cas3").innerHTML = obj[0].cashRatio;
             }
         };
-        xmlhttp.open("GET","http://47.100.120.235:8081/detailInfo?fundId="+document.getElementById(11).innerText,true);
+        xmlhttp.open("GET","http://47.100.120.235:8081/detailInfo?fundId="+document.getElementById("no3").innerText,true);
         //xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");
         xmlhttp.send();
     }
@@ -917,6 +917,11 @@
     function readstar(){
         var xmlhttp;
         var timestamp = Date.parse(new Date());
+        var fd = new FormData();
+        fd.append("uuid","111");
+        fd.append("operation","read");
+        fd.append("fundId","*");
+        fd.append("date",timestamp);
         if (window.XMLHttpRequest) {
             // //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
             xmlhttp = new XMLHttpRequest();
@@ -938,49 +943,52 @@
                 alert(xmlhttp.responseText);
         }
         xmlhttp.open("POST","http://47.100.120.235:8081/collection",true);
-        xmlhttp.send("uuid=111&operation=read&fundId=*&date="+timestamp);//uuid待改动
+        xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xmlhttp.send(fd);//uuid待改动
+
+
     }
 
 </script>
 
 <!--用户信息界面取消收藏-->
-<script type="text/javascript">
-    function judgestar(element) {
-        var xmlhttp;
-        var timestamp = Date.parse(new Date());
-        if (element.class == "icon fa fa-star") {//如果已star
-            if (window.XMLHttpRequest) {
-                // //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-                xmlhttp = new XMLHttpRequest();
-            } else {
-                // IE6, IE5 浏览器执行代码
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xmlhttp.onreadystatechange = function () {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+<!--<script type="text/javascript">-->
+<!--    function judgestar(element) {-->
+<!--        var xmlhttp;-->
+<!--        var timestamp = Date.parse(new Date());-->
+<!--        if (element.class == "icon fa fa-star") {//如果已star-->
+<!--            if (window.XMLHttpRequest) {-->
+<!--                // //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码-->
+<!--                xmlhttp = new XMLHttpRequest();-->
+<!--            } else {-->
+<!--                // IE6, IE5 浏览器执行代码-->
+<!--                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");-->
+<!--            }-->
+<!--            xmlhttp.onreadystatechange = function () {-->
+<!--                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {-->
 
-                }
-            }
-            xmlhttp.open("POST", "http://47.100.120.235:8081/collection", true);
-            xmlhttp.send("uuid="+userid+"&operation=delete&fundId="+element."&date=" + timestamp);
-        }
-        else{//如果未star
-            if (window.XMLHttpRequest) {
-                // //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-                xmlhttp = new XMLHttpRequest();
-            } else {
-                // IE6, IE5 浏览器执行代码
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xmlhttp.onreadystatechange = function () {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+<!--                }-->
+<!--            }-->
+<!--            xmlhttp.open("POST", "http://47.100.120.235:8081/collection", true);-->
+<!--            xmlhttp.send("uuid="+userid+"&operation=delete&fundId="+element."&date=" + timestamp);-->
+<!--        }-->
+<!--        else{//如果未star-->
+<!--            if (window.XMLHttpRequest) {-->
+<!--                // //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码-->
+<!--                xmlhttp = new XMLHttpRequest();-->
+<!--            } else {-->
+<!--                // IE6, IE5 浏览器执行代码-->
+<!--                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");-->
+<!--            }-->
+<!--            xmlhttp.onreadystatechange = function () {-->
+<!--                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {-->
 
-                }
-            }
-            xmlhttp.open("POST", "http://47.100.120.235:8081/collection", true);
-            xmlhttp.send("uuid="+userid+"&operation=add&fundId="+element."&date=" + timestamp);
-        }
-    }
-</script>
+<!--                }-->
+<!--            }-->
+<!--            xmlhttp.open("POST", "http://47.100.120.235:8081/collection", true);-->
+<!--            xmlhttp.send("uuid="+userid+"&operation=add&fundId="+element."&date=" + timestamp);-->
+<!--        }-->
+<!--    }-->
+<!--</script>-->
 </body>
 </html>

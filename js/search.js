@@ -13,7 +13,7 @@ function search(){
             searchSequence = xmlhttp.responseText;
             object = JSON.parse(searchSequence);
             var ul = document.getElementById('ul1');
-            for (i = 0; i < object.length; i++) {
+            for (var i = 0; i < object.length; i++) {
                 var li = document.createElement("li");
                 var a = document.createElement("a");
                 ul.appendChild(li);

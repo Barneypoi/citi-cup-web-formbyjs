@@ -23,8 +23,10 @@
 <!--表格-->
     <link rel="stylesheet" href="dist/excel-bootstrap-table-filter-style.css" />
     <script src="js/vendor/echarts.js"></script>
+    <script src="js/load.js"></script>
     <script src="js/search.js"></script>
     <script src="js/delete.js"></script>
+    <script src="js/star.js"></script>
     <script>
         var code1,code2,code3;
     </script>
@@ -309,6 +311,7 @@
                                     <div class="col-md-6" style="text-align: center">
                                         <div >
                                             <h5>自选基金  </h5>
+                                            <div id="starlist">
                                             <div class="fund" >
                                                 <a id="chosenfund1">00001</a>
                                                 <i class="icon fa fa-star " id="fundstar1" style="margin-top: 1%;margin-left:25%;font-size: 20px" onclick="judgestar(this)"></i>
@@ -317,6 +320,7 @@
                                             <div class="fund" >
                                                 <a id="chosenfund2">00002</a>
                                                 <i class="icon fa fa-star " id="fundstar2" style="margin-top: 1%;margin-left:25%;font-size: 20px" onclick="judgestar(this)"></i>
+                                            </div>
                                             </div>
 <!--                                        <div class="right-image">-->
 <!--                                            <img src="img/right-about-image.png" alt="">-->
@@ -674,225 +678,223 @@
     //加载状态为complete时移除loading效果
     function completeLoading() {
         if (document.readyState == "complete") {
-
             var loadingMask = document.getElementById('loadingDiv');
-
             loadingMask.parentNode.removeChild(loadingMask);
         }
     }
 </script>
 
 <script type="text/javascript" src="js/mt-tabpage.js"></script>
-<script>
-    function loadXMLDoc1()
-    {
-        //setTimeout(function(){ alert("Hello"); }, 1000);
-        var xmlhttp;
-        if (window.XMLHttpRequest)
-        {
-            //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-            xmlhttp=new XMLHttpRequest();
-        }
-        else
-        {
-            // IE6, IE5 浏览器执行代码
-            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange=function()
-        {
-            if (xmlhttp.readyState==4 && xmlhttp.status==200)
-            {
-                var str = xmlhttp.responseText;
-                var obj = JSON.parse(str);//JSON字符串转JSON对象
-                code1='http://fund.eastmoney.com/'+( "0000000000000000" + document.getElementById("no1").innerText ).substr( -6 )+'.html?spm=search';
-                document.getElementById("no1").innerHTML = ( "0000000000000000" + document.getElementById("no1").innerText ).substr( -6 );
-                document.getElementById("nam1").innerHTML = obj[0].fundName;
-                document.getElementById("inc1").innerHTML = obj[0].fundIncre;
-                document.getElementById("typ1").innerHTML = obj[0].fundType;
-                document.getElementById("ris1").innerHTML = obj[0].fundRisk;
-            }
-        };
-        xmlhttp.open("GET","http://47.100.120.235:8081/mainInfo?fundId="+document.getElementById("no1").innerText,true);
-        //xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");
-        xmlhttp.send();
-    }
-</script>
+<!--<script>-->
+<!--    function loadXMLDoc1()-->
+<!--    {-->
+<!--        //setTimeout(function(){ alert("Hello"); }, 1000);-->
+<!--        var xmlhttp;-->
+<!--        if (window.XMLHttpRequest)-->
+<!--        {-->
+<!--            //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码-->
+<!--            xmlhttp=new XMLHttpRequest();-->
+<!--        }-->
+<!--        else-->
+<!--        {-->
+<!--            // IE6, IE5 浏览器执行代码-->
+<!--            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");-->
+<!--        }-->
+<!--        xmlhttp.onreadystatechange=function()-->
+<!--        {-->
+<!--            if (xmlhttp.readyState==4 && xmlhttp.status==200)-->
+<!--            {-->
+<!--                var str = xmlhttp.responseText;-->
+<!--                var obj = JSON.parse(str);//JSON字符串转JSON对象-->
+<!--                code1='http://fund.eastmoney.com/'+( "0000000000000000" + document.getElementById("no1").innerText ).substr( -6 )+'.html?spm=search';-->
+<!--                document.getElementById("no1").innerHTML = ( "0000000000000000" + document.getElementById("no1").innerText ).substr( -6 );-->
+<!--                document.getElementById("nam1").innerHTML = obj[0].fundName;-->
+<!--                document.getElementById("inc1").innerHTML = obj[0].fundIncre;-->
+<!--                document.getElementById("typ1").innerHTML = obj[0].fundType;-->
+<!--                document.getElementById("ris1").innerHTML = obj[0].fundRisk;-->
+<!--            }-->
+<!--        };-->
+<!--        xmlhttp.open("GET","http://47.100.120.235:8081/mainInfo?fundId="+document.getElementById("no1").innerText,true);-->
+<!--        //xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");-->
+<!--        xmlhttp.send();-->
+<!--    }-->
+<!--</script>-->
 
-<script>
-    function loadXMLDetail1()
-    {
-        //setTimeout(function(){ alert("Hello"); }, 1000);
-        var xmlhttp;
-        if (window.XMLHttpRequest)
-        {
-            //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-            xmlhttp=new XMLHttpRequest();
-        }
-        else
-        {
-            // IE6, IE5 浏览器执行代码
-            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange=function()
-        {
-            if (xmlhttp.readyState==4 && xmlhttp.status==200)
-            {
-                var str = xmlhttp.responseText;
-                var obj = JSON.parse(str);//JSON字符串转JSON对象
-                document.getElementById("sca1").innerHTML = obj[0].fundScale;
-                document.getElementById("est1").innerHTML = obj[0].fundEstablishTime;
-                document.getElementById("com1").innerHTML = obj[0].funCompany;
-                document.getElementById("man1").innerHTML = obj[0].fundManager;
-                document.getElementById("sto1").innerHTML = obj[0].stockRatio;
-                document.getElementById("bon1").innerHTML = obj[0].bondRatio;
-                document.getElementById("cas1").innerHTML = obj[0].cashRatio;
-            }
-        };
-        xmlhttp.open("GET","http://47.100.120.235:8081/detailInfo?fundId="+document.getElementById("no1").innerText,true);
-        //xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");
-        xmlhttp.send();
-    }
-</script>
-<script>
-    function loadXMLDoc2()
-    {
-        //setTimeout(function(){ alert("Hello"); }, 1000);
-        var xmlhttp;
-        if (window.XMLHttpRequest)
-        {
-            //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-            xmlhttp=new XMLHttpRequest();
-        }
-        else
-        {
-            // IE6, IE5 浏览器执行代码
-            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange=function()
-        {
-            if (xmlhttp.readyState==4 && xmlhttp.status==200)
-            {
-                var str = xmlhttp.responseText;
-                var obj = JSON.parse(str);//JSON字符串转JSON对象
-                code2='http://fund.eastmoney.com/'+( "0000000000000000" + document.getElementById("no2").innerText ).substr( -6 )+'.html?spm=search';
-                document.getElementById("no2").innerHTML = ( "0000000000000000" + document.getElementById("no2").innerText ).substr( -6 );
-                document.getElementById("nam2").innerHTML = obj[0].fundName;
-                document.getElementById("inc2").innerHTML = obj[0].fundIncre;
-                document.getElementById("typ2").innerHTML = obj[0].fundType;
-                document.getElementById("ris2").innerHTML = obj[0].fundRisk;
-            }
-        };
-        xmlhttp.open("GET","http://47.100.120.235:8081/mainInfo?fundId="+document.getElementById("no2").innerText,true);
-        //xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");
-        xmlhttp.send();
-    }
-</script>
-<script>
-    function loadXMLDetail2()
-    {
-        //setTimeout(function(){ alert("Hello"); }, 1000);
-        var xmlhttp;
-        if (window.XMLHttpRequest)
-        {
-            //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-            xmlhttp=new XMLHttpRequest();
-        }
-        else
-        {
-            // IE6, IE5 浏览器执行代码
-            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange=function()
-        {
-            if (xmlhttp.readyState==4 && xmlhttp.status==200)
-            {
-                var str = xmlhttp.responseText;
-                var obj = JSON.parse(str);//JSON字符串转JSON对象
-                document.getElementById("sca2").innerHTML = obj[0].fundScale;
-                document.getElementById("est2").innerHTML = obj[0].fundEstablishTime;
-                document.getElementById("com2").innerHTML = obj[0].funCompany;
-                document.getElementById("man2").innerHTML = obj[0].fundManager;
-                document.getElementById("sto2").innerHTML = obj[0].stockRatio;
-                document.getElementById("bon2").innerHTML = obj[0].bondRatio;
-                document.getElementById("cas2").innerHTML = obj[0].cashRatio;
-            }
-        };
-        xmlhttp.open("GET","http://47.100.120.235:8081/detailInfo?fundId="+document.getElementById("no2").innerText,true);
-        //xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");
-        xmlhttp.send();
-    }
-</script>
+<!--<script>-->
+<!--    function loadXMLDetail1()-->
+<!--    {-->
+<!--        //setTimeout(function(){ alert("Hello"); }, 1000);-->
+<!--        var xmlhttp;-->
+<!--        if (window.XMLHttpRequest)-->
+<!--        {-->
+<!--            //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码-->
+<!--            xmlhttp=new XMLHttpRequest();-->
+<!--        }-->
+<!--        else-->
+<!--        {-->
+<!--            // IE6, IE5 浏览器执行代码-->
+<!--            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");-->
+<!--        }-->
+<!--        xmlhttp.onreadystatechange=function()-->
+<!--        {-->
+<!--            if (xmlhttp.readyState==4 && xmlhttp.status==200)-->
+<!--            {-->
+<!--                var str = xmlhttp.responseText;-->
+<!--                var obj = JSON.parse(str);//JSON字符串转JSON对象-->
+<!--                document.getElementById("sca1").innerHTML = obj[0].fundScale;-->
+<!--                document.getElementById("est1").innerHTML = obj[0].fundEstablishTime;-->
+<!--                document.getElementById("com1").innerHTML = obj[0].funCompany;-->
+<!--                document.getElementById("man1").innerHTML = obj[0].fundManager;-->
+<!--                document.getElementById("sto1").innerHTML = obj[0].stockRatio;-->
+<!--                document.getElementById("bon1").innerHTML = obj[0].bondRatio;-->
+<!--                document.getElementById("cas1").innerHTML = obj[0].cashRatio;-->
+<!--            }-->
+<!--        };-->
+<!--        xmlhttp.open("GET","http://47.100.120.235:8081/detailInfo?fundId="+document.getElementById("no1").innerText,true);-->
+<!--        //xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");-->
+<!--        xmlhttp.send();-->
+<!--    }-->
+<!--</script>-->
+<!--<script>-->
+<!--    function loadXMLDoc2()-->
+<!--    {-->
+<!--        //setTimeout(function(){ alert("Hello"); }, 1000);-->
+<!--        var xmlhttp;-->
+<!--        if (window.XMLHttpRequest)-->
+<!--        {-->
+<!--            //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码-->
+<!--            xmlhttp=new XMLHttpRequest();-->
+<!--        }-->
+<!--        else-->
+<!--        {-->
+<!--            // IE6, IE5 浏览器执行代码-->
+<!--            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");-->
+<!--        }-->
+<!--        xmlhttp.onreadystatechange=function()-->
+<!--        {-->
+<!--            if (xmlhttp.readyState==4 && xmlhttp.status==200)-->
+<!--            {-->
+<!--                var str = xmlhttp.responseText;-->
+<!--                var obj = JSON.parse(str);//JSON字符串转JSON对象-->
+<!--                code2='http://fund.eastmoney.com/'+( "0000000000000000" + document.getElementById("no2").innerText ).substr( -6 )+'.html?spm=search';-->
+<!--                document.getElementById("no2").innerHTML = ( "0000000000000000" + document.getElementById("no2").innerText ).substr( -6 );-->
+<!--                document.getElementById("nam2").innerHTML = obj[0].fundName;-->
+<!--                document.getElementById("inc2").innerHTML = obj[0].fundIncre;-->
+<!--                document.getElementById("typ2").innerHTML = obj[0].fundType;-->
+<!--                document.getElementById("ris2").innerHTML = obj[0].fundRisk;-->
+<!--            }-->
+<!--        };-->
+<!--        xmlhttp.open("GET","http://47.100.120.235:8081/mainInfo?fundId="+document.getElementById("no2").innerText,true);-->
+<!--        //xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");-->
+<!--        xmlhttp.send();-->
+<!--    }-->
+<!--</script>-->
+<!--<script>-->
+<!--    function loadXMLDetail2()-->
+<!--    {-->
+<!--        //setTimeout(function(){ alert("Hello"); }, 1000);-->
+<!--        var xmlhttp;-->
+<!--        if (window.XMLHttpRequest)-->
+<!--        {-->
+<!--            //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码-->
+<!--            xmlhttp=new XMLHttpRequest();-->
+<!--        }-->
+<!--        else-->
+<!--        {-->
+<!--            // IE6, IE5 浏览器执行代码-->
+<!--            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");-->
+<!--        }-->
+<!--        xmlhttp.onreadystatechange=function()-->
+<!--        {-->
+<!--            if (xmlhttp.readyState==4 && xmlhttp.status==200)-->
+<!--            {-->
+<!--                var str = xmlhttp.responseText;-->
+<!--                var obj = JSON.parse(str);//JSON字符串转JSON对象-->
+<!--                document.getElementById("sca2").innerHTML = obj[0].fundScale;-->
+<!--                document.getElementById("est2").innerHTML = obj[0].fundEstablishTime;-->
+<!--                document.getElementById("com2").innerHTML = obj[0].funCompany;-->
+<!--                document.getElementById("man2").innerHTML = obj[0].fundManager;-->
+<!--                document.getElementById("sto2").innerHTML = obj[0].stockRatio;-->
+<!--                document.getElementById("bon2").innerHTML = obj[0].bondRatio;-->
+<!--                document.getElementById("cas2").innerHTML = obj[0].cashRatio;-->
+<!--            }-->
+<!--        };-->
+<!--        xmlhttp.open("GET","http://47.100.120.235:8081/detailInfo?fundId="+document.getElementById("no2").innerText,true);-->
+<!--        //xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");-->
+<!--        xmlhttp.send();-->
+<!--    }-->
+<!--</script>-->
 
-<script>
-    function loadXMLDoc3()
-    {
-        //setTimeout(function(){ alert("Hello"); }, 1000);
-        var xmlhttp;
-        if (window.XMLHttpRequest)
-        {
-            //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-            xmlhttp=new XMLHttpRequest();
-        }
-        else
-        {
-            // IE6, IE5 浏览器执行代码
-            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange=function()
-        {
-            if (xmlhttp.readyState==4 && xmlhttp.status==200)
-            {
-                var str = xmlhttp.responseText;
-                var obj = JSON.parse(str);//JSON字符串转JSON对象
-                code3='http://fund.eastmoney.com/'+( "0000000000000000" + document.getElementById("no3").innerText ).substr( -6 )+'.html?spm=search';
-                document.getElementById("no3").innerHTML = ( "0000000000000000" + document.getElementById("no3").innerText ).substr( -6 );
-                document.getElementById("nam3").innerHTML = obj[0].fundName;
-                document.getElementById("inc3").innerHTML = obj[0].fundIncre;
-                document.getElementById("typ3").innerHTML = obj[0].fundType;
-                document.getElementById("ris3").innerHTML = obj[0].fundRisk;
-            }
-        };
-        xmlhttp.open("GET","http://47.100.120.235:8081/mainInfo?fundId="+document.getElementById("no3").innerText,true);
-        //xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");
-        xmlhttp.send();
-    }
-</script>
+<!--<script>-->
+<!--    function loadXMLDoc3()-->
+<!--    {-->
+<!--        //setTimeout(function(){ alert("Hello"); }, 1000);-->
+<!--        var xmlhttp;-->
+<!--        if (window.XMLHttpRequest)-->
+<!--        {-->
+<!--            //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码-->
+<!--            xmlhttp=new XMLHttpRequest();-->
+<!--        }-->
+<!--        else-->
+<!--        {-->
+<!--            // IE6, IE5 浏览器执行代码-->
+<!--            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");-->
+<!--        }-->
+<!--        xmlhttp.onreadystatechange=function()-->
+<!--        {-->
+<!--            if (xmlhttp.readyState==4 && xmlhttp.status==200)-->
+<!--            {-->
+<!--                var str = xmlhttp.responseText;-->
+<!--                var obj = JSON.parse(str);//JSON字符串转JSON对象-->
+<!--                code3='http://fund.eastmoney.com/'+( "0000000000000000" + document.getElementById("no3").innerText ).substr( -6 )+'.html?spm=search';-->
+<!--                document.getElementById("no3").innerHTML = ( "0000000000000000" + document.getElementById("no3").innerText ).substr( -6 );-->
+<!--                document.getElementById("nam3").innerHTML = obj[0].fundName;-->
+<!--                document.getElementById("inc3").innerHTML = obj[0].fundIncre;-->
+<!--                document.getElementById("typ3").innerHTML = obj[0].fundType;-->
+<!--                document.getElementById("ris3").innerHTML = obj[0].fundRisk;-->
+<!--            }-->
+<!--        };-->
+<!--        xmlhttp.open("GET","http://47.100.120.235:8081/mainInfo?fundId="+document.getElementById("no3").innerText,true);-->
+<!--        //xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");-->
+<!--        xmlhttp.send();-->
+<!--    }-->
+<!--</script>-->
 
-<script>
-    function loadXMLDetail3()
-    {
-        //setTimeout(function(){ alert("Hello"); }, 1000);
-        var xmlhttp;
-        if (window.XMLHttpRequest)
-        {
-            //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-            xmlhttp=new XMLHttpRequest();
-        }
-        else
-        {
-            // IE6, IE5 浏览器执行代码
-            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange=function()
-        {
-            if (xmlhttp.readyState==4 && xmlhttp.status==200)
-            {
-                var str = xmlhttp.responseText;
-                var obj = JSON.parse(str);//JSON字符串转JSON对象
-                document.getElementById("sca3").innerHTML = obj[0].fundScale;
-                document.getElementById("est3").innerHTML = obj[0].fundEstablishTime;
-                document.getElementById("com3").innerHTML = obj[0].funCompany;
-                document.getElementById("man3").innerHTML = obj[0].fundManager;
-                document.getElementById("sto3").innerHTML = obj[0].stockRatio;
-                document.getElementById("bon3").innerHTML = obj[0].bondRatio;
-                document.getElementById("cas3").innerHTML = obj[0].cashRatio;
-            }
-        };
-        xmlhttp.open("GET","http://47.100.120.235:8081/detailInfo?fundId="+document.getElementById("no3").innerText,true);
-        //xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");
-        xmlhttp.send();
-    }
-</script>
+<!--<script>-->
+<!--    function loadXMLDetail3()-->
+<!--    {-->
+<!--        //setTimeout(function(){ alert("Hello"); }, 1000);-->
+<!--        var xmlhttp;-->
+<!--        if (window.XMLHttpRequest)-->
+<!--        {-->
+<!--            //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码-->
+<!--            xmlhttp=new XMLHttpRequest();-->
+<!--        }-->
+<!--        else-->
+<!--        {-->
+<!--            // IE6, IE5 浏览器执行代码-->
+<!--            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");-->
+<!--        }-->
+<!--        xmlhttp.onreadystatechange=function()-->
+<!--        {-->
+<!--            if (xmlhttp.readyState==4 && xmlhttp.status==200)-->
+<!--            {-->
+<!--                var str = xmlhttp.responseText;-->
+<!--                var obj = JSON.parse(str);//JSON字符串转JSON对象-->
+<!--                document.getElementById("sca3").innerHTML = obj[0].fundScale;-->
+<!--                document.getElementById("est3").innerHTML = obj[0].fundEstablishTime;-->
+<!--                document.getElementById("com3").innerHTML = obj[0].funCompany;-->
+<!--                document.getElementById("man3").innerHTML = obj[0].fundManager;-->
+<!--                document.getElementById("sto3").innerHTML = obj[0].stockRatio;-->
+<!--                document.getElementById("bon3").innerHTML = obj[0].bondRatio;-->
+<!--                document.getElementById("cas3").innerHTML = obj[0].cashRatio;-->
+<!--            }-->
+<!--        };-->
+<!--        xmlhttp.open("GET","http://47.100.120.235:8081/detailInfo?fundId="+document.getElementById("no3").innerText,true);-->
+<!--        //xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*");-->
+<!--        xmlhttp.send();-->
+<!--    }-->
+<!--</script>-->
 
 <script type="text/javascript">
     $(function () {
@@ -913,45 +915,36 @@
     });
 </script>
 
-<script type="text/javascript">
-    function readstar(){
-        var xmlhttp;
-        var timestamp = Date.parse(new Date());
-        var fd = new FormData();
-        fd.append("uuid","111");
-        fd.append("operation","read");
-        fd.append("fundId","*");
-        fd.append("date",timestamp);
-        if (window.XMLHttpRequest) {
-            // //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // IE6, IE5 浏览器执行代码
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.readyState == 1){
-                alert("1");
-            }
-            if (xmlhttp.readyState == 2){
-                alert("2");
-            }
-            if (xmlhttp.readyState == 3){
-                alert("3");
-            }
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-                alert(xmlhttp.responseText);
-        }
-        xmlhttp.open("POST","http://47.100.120.235:8081/collection",true);
-        xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-        xmlhttp.send(fd);//uuid待改动
+<!--<script type="text/javascript">-->
+<!--    function readstar(){-->
+<!--        var xmlhttp;-->
+<!--        var timestamp = Date.parse(new Date());-->
+<!--        var fd = new FormData();-->
+<!--        fd.append("uuid","111");-->
+<!--        fd.append("operation","read");-->
+<!--        fd.append("fundId","*");-->
+<!--        fd.append("date",timestamp);-->
+<!--        if (window.XMLHttpRequest) {-->
+<!--            // //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码-->
+<!--            xmlhttp = new XMLHttpRequest();-->
+<!--        } else {-->
+<!--            // IE6, IE5 浏览器执行代码-->
+<!--            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");-->
+<!--        }-->
+<!--        xmlhttp.onreadystatechange = function () {-->
+<!--            if (xmlhttp.readyState == 4 && xmlhttp.status == 200)-->
+<!--                var myStar = xmlhttp.responseText;-->
+<!--                var starObject = JSON.parse(myStar);-->
 
+<!--        }-->
+<!--        xmlhttp.open("POST","http://47.100.120.235:8081/collection",true);-->
+<!--        xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");-->
+<!--        xmlhttp.send("uuid=a46cbf1c-a396-11e9-b69b-f42cb030f26f&operation=read&fundId=*&date="+timestamp);-->
+<!--    }-->
 
-    }
+<!--</script>-->
 
-</script>
-
-<!--用户信息界面取消收藏-->
+<!--&lt;!&ndash;用户信息界面添加取消收藏&ndash;&gt;-->
 <!--<script type="text/javascript">-->
 <!--    function judgestar(element) {-->
 <!--        var xmlhttp;-->

@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7576bf27-5f46-443c-bfbc-1141a2e9a89e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/js/load.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/star.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/search.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,28 +20,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="155" column="20" selection-start-line="155" selection-start-column="20" selection-end-line="155" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/tooplate-style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="369" column="30" selection-start-line="369" selection-start-column="30" selection-end-line="369" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/search.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="52" column="24" lean-forward="true" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="71" />
+            <state relative-caret-position="-57">
+              <caret column="25" selection-start-column="25" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -46,8 +31,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1183">
-              <caret line="976" lean-forward="true" selection-start-line="976" selection-end-line="976" />
+            <state relative-caret-position="38">
+              <caret line="263" column="83" lean-forward="true" selection-start-line="263" selection-start-column="83" selection-end-line="263" selection-end-column="83" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#1;n#div#1;n#li#0;n#div#0;n#section#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#div#1;n#div#1;n#div#1;n#div#0;n#li#0;n#ul#0;n#div#1;n#div#1;n#li#0;n#div#0;n#section#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -65,6 +50,24 @@
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/star.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/delete.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="5" column="5" lean-forward="true" selection-start-line="1" selection-start-column="3" selection-end-line="5" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -87,11 +90,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/search.html" />
-        <option value="$PROJECT_DIR$/js/search.js" />
         <option value="$PROJECT_DIR$/js/delete.js" />
         <option value="$PROJECT_DIR$/css/tooplate-style.css" />
         <option value="$PROJECT_DIR$/css/style.css" />
+        <option value="$PROJECT_DIR$/js/load.js" />
+        <option value="$PROJECT_DIR$/js/search.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/star.js" />
       </list>
     </option>
   </component>
@@ -162,7 +167,7 @@
       <updated>1562509081076</updated>
       <workItem from="1562509082199" duration="4719000" />
       <workItem from="1562547319155" duration="26323000" />
-      <workItem from="1562807267439" duration="5771000" />
+      <workItem from="1562807267439" duration="21376000" />
     </task>
     <task id="LOCAL-00001" summary="7.7晚">
       <created>1562515565093</created>
@@ -206,11 +211,25 @@
       <option name="project" value="LOCAL" />
       <updated>1562760032844</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="收藏暂未实现">
+      <created>1562813612537</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1562813612537</updated>
+    </task>
+    <task id="LOCAL-00008" summary="id修改">
+      <created>1562831274214</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1562831274214</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56220000" />
+    <option name="totallyTimeSpent" value="71825000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -237,7 +256,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3299748" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="SVN Repositories" order="8" weight="0.3299748" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.34748012" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.20025189" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -315,7 +334,9 @@
     <MESSAGE value="暂定" />
     <MESSAGE value="7.10晚" />
     <MESSAGE value="搜索功能完成、控件修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="搜索功能完成、控件修改" />
+    <MESSAGE value="收藏暂未实现" />
+    <MESSAGE value="id修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="id修改" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/js/plugins.js">
@@ -405,17 +426,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-209">
+          <caret line="22" column="6" lean-forward="true" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="551">
           <caret line="155" column="20" selection-start-line="155" selection-start-column="20" selection-end-line="155" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/delete.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -426,24 +447,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/login.html">
+    <entry file="file://$PROJECT_DIR$/js/load.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-209">
-          <caret line="22" column="6" lean-forward="true" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
-        </state>
+        <state relative-caret-position="-3130" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/search.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="52" column="24" lean-forward="true" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="71" />
+        <state relative-caret-position="-57">
+          <caret column="25" selection-start-column="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/delete.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="5" lean-forward="true" selection-start-line="1" selection-start-column="3" selection-end-line="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/star.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1183">
-          <caret line="976" lean-forward="true" selection-start-line="976" selection-end-line="976" />
+        <state relative-caret-position="38">
+          <caret line="263" column="83" lean-forward="true" selection-start-line="263" selection-start-column="83" selection-end-line="263" selection-end-column="83" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#1;n#div#1;n#li#0;n#div#0;n#section#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#1;n#div#1;n#div#1;n#div#0;n#li#0;n#ul#0;n#div#1;n#div#1;n#li#0;n#div#0;n#section#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />

@@ -2,11 +2,6 @@ function readstar()
 {
     var xmlhttp;
     var timestamp = Date.parse(new Date());
-    var fd = new FormData();
-    fd.append("uuid","111");
-    fd.append("operation","read");
-    fd.append("fundId","*");
-    fd.append("date",timestamp);
     if (window.XMLHttpRequest)
     {
         // //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
@@ -44,10 +39,10 @@ function readstar()
         }
         xmlhttp.open("POST","http://47.100.120.235:8081/collection",true);
         xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-        xmlhttp.send("uuid=a46cbf1c-a396-11e9-b69b-f42cb030f26f&operation=read&fundId=*&date="+timestamp);
+        xmlhttp.send("uuid=4cdfcb8a-a3b9-11e9-b20e-f42cb030f26f&operation=read&fundId=*&date="+timestamp);
     }
 }
-//确认删除
+
 
 
     <!--用户信息界面取消收藏-->
@@ -69,6 +64,6 @@ function readstar()
             }
             xmlhttp.open("POST", "http://47.100.120.235:8081/collection", true);
             xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-            xmlhttp.send("uuid=a46cbf1c-a396-11e9-b69b-f42cb030f26f&operation=delete&fundId="+element.id+"&date=" + timestamp);
+            xmlhttp.send("uuid=4cdfcb8a-a3b9-11e9-b20e-f42cb030f26f&operation=delete&fundId="+element.id+"&date=" + timestamp);
         }
     }

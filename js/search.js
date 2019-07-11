@@ -1,6 +1,7 @@
 var object ,searchSequence;
 function search(){
     var xmlhttp;
+    deleteLi();
     if (window.XMLHttpRequest) {
 // //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
         xmlhttp = new XMLHttpRequest();
@@ -60,7 +61,6 @@ function getId(obj) {
 function addStar(element) {
     var xmlhttp;
     var timestamp = Date.parse(new Date());
-    if (element.class == "icon fa fa-star") {//如果已star
         if (window.XMLHttpRequest) {
             // //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
             xmlhttp = new XMLHttpRequest();
@@ -81,7 +81,7 @@ function addStar(element) {
                 a.innerHTML = ("0000000000000000" + object[element.parentNode.id-1].fundId).substr(-6);
                 div.appendChild(i);
                 i.setAttribute("class","icon fa fa-star");
-                i.setAttribute("id",starObject[j].fundId);
+                i.setAttribute("id",object[element.parentNode.id-1].fundId);
                 i.setAttribute("style","margin-top: 1%;margin-left:25%;font-size: 20px");
                 i.setAttribute("onclick","judgestar(this)");
                 i.setAttribute("columnNum",j);
@@ -89,6 +89,5 @@ function addStar(element) {
         }
         xmlhttp.open("POST", "http://47.100.120.235:8081/collection", true);
         xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-        xmlhttp.send("uuid=a46cbf1c-a396-11e9-b69b-f42cb030f26f&operation=add&fundId="+object[element.parentNode.id-1].fundId+"&date=" + timestamp);
-    }
+        xmlhttp.send("uuid=4cdfcb8a-a3b9-11e9-b20e-f42cb030f26f&operation=add&fundId="+object[element.parentNode.id-1].fundId+"&date=" + timestamp);
 }

@@ -13,17 +13,7 @@ function readstar()
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
     xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 1) {
-            alert("read1");
-        }
-        if (xmlhttp.readyState == 2) {
-            alert("read2");
-        }
-        if (xmlhttp.readyState == 3) {
-            alert("read3");
-        }
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            alert("read success");
             var myStar = xmlhttp.responseText;
             var starObject = JSON.parse(myStar);
             var sl = document.getElementById('starlist');

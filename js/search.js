@@ -69,17 +69,7 @@ function addStar(element) {
             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
         xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.readyState == 1){
-                alert("add1");
-            }
-            if (xmlhttp.readyState == 2){
-                alert("add2");
-            }
-            if (xmlhttp.readyState == 3){
-                alert("add3");
-            }
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                alert("add success");
                 var sl = document.getElementById('starlist');
                 var div = document.createElement("div");
                 var a = document.createElement("a");

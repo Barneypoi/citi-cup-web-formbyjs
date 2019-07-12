@@ -35,7 +35,7 @@ function readstar()
                 i.setAttribute("columnNum", j);
             }
         }
-    }
+    };
         xmlhttp.open("POST","http://47.100.120.235:8081/collection",true);
         xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
         xmlhttp.send("uuid=4cdfcb8a-a3b9-11e9-b20e-f42cb030f26f&operation=read&fundId=*&date="+timestamp);
@@ -47,10 +47,9 @@ function readstar()
     function judgestar(element) {
         var xmlhttp;
         var timestamp = Date.parse(new Date());
-        if (element.class == "icon fa fa-star") {//如果已star
-            if (window.XMLHttpRequest) {
-                // //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-                xmlhttp = new XMLHttpRequest();
+        if (window.XMLHttpRequest){
+            // //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+            xmlhttp = new XMLHttpRequest();
             } else {
                 // IE6, IE5 浏览器执行代码
                 xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
@@ -60,9 +59,8 @@ function readstar()
                     //移除对应的父节点
                     element.parentNode.parentNode.removeChild(element.parentNode);
                 }
-            }
+            };
             xmlhttp.open("POST", "http://47.100.120.235:8081/collection", true);
             xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
             xmlhttp.send("uuid=4cdfcb8a-a3b9-11e9-b20e-f42cb030f26f&operation=delete&fundId="+element.id+"&date=" + timestamp);
-        }
     }

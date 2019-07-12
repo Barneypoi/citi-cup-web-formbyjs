@@ -23,14 +23,16 @@
 <!--表格-->
     <link rel="stylesheet" href="dist/excel-bootstrap-table-filter-style.css" />
     <script src="js/vendor/echarts.js"></script>
+    <script>
+        var code1,code2,code3;//待拼接的三个外部地址
+    </script>
     <script src="js/load.js"></script>
     <script src="js/search.js"></script>
     <script src="js/delete.js"></script>
     <script src="js/star.js"></script>
-    <script>
-        var code1,code2,code3;
-    </script>
+
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
 </head>
 <style type="text/css">
     #box{
@@ -184,7 +186,6 @@
                             </div>
                             <div class="mt-tabpage-count" style="color: #4984a6;margin: 0;padding: 0">
                                 <ul class="mt-tabpage-cont__wrap" style="color: #4984a6;margin: 0;padding: 0">
-
                                     <li class="mt-tabpage-item"style="color: #4984a6;margin: 0;padding: 0">
                                         <div class="container">
                                             <div class="row" style="margin-top: 5%">
@@ -197,12 +198,18 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <h2 style="height:10%" id="nam1"></h2><h3 id="no1">1</h3>
+                                                    <h2 style="height:10%" id="nam1"></h2><h3 id="no1"></h3>
                                                     <p>基金涨幅： <em id="inc1"></em></p>
                                                     <p>基金类型：<em id="typ1"></em></p>
                                                     <p>基金风险：<em id="ris1"></em></p>
                                                     <p>基金规模：<em id="sca1"></em>(亿元)</p>
                                                     <p>基金建立时间：<em id="est1"></em></p>
+                                                    <p style="display: none"><em id="num1"></em></p>
+                                                    <p style="display: none"><em id="fxtz1"></em></p>
+                                                    <p style="display: none"><em id="fxzb1"></em></p>
+                                                    <p style="display: none"><em id="xgnl1"></em></p>
+                                                    <p style="display: none"><em id="zsnl1"></em></p>
+                                                    <p style="display: none"><em id="syzb1"></em></p>
 
                                                 </div>
                                                 <div class="col-md-6" >
@@ -214,99 +221,76 @@
                                                     <h3><a href="" onclick="fun_a()" id="link1">更多信息</a></h3>
                                                 </div>
                                             </div>
-
-
-<!--                                            <div class="leftbox">-->
-<!--&lt;!&ndash;                                                <div class="topbox" id="bargraph1"></div>&ndash;&gt;-->
-<!--                                                <div class="upbox" style="text-align:center">-->
-<!--&lt;!&ndash;                                                    <h2 style="height:50%" id="nam1"></h2><h3 id="no1">1</h3>&ndash;&gt;-->
-<!--                                                </div >-->
-<!--                                                <div  class="downbox">-->
-<!--                                                    <p>基金涨幅： <em id="inc1"></em></p>-->
-<!--                                                    <p>基金类型：<em id="typ1"></em></p>-->
-<!--                                                    <p>基金风险：<em id="ris1"></em></p>-->
-<!--                                                    <p>基金规模：<em id="sca1"></em>(亿元)</p>-->
-<!--                                                    <p>基金建立时间：<em id="est1"></em></p>-->
-<!--                                                    <p>基金公司：<em id="com1"></em></p>-->
-<!--                                                    <p>基金经理：<em id="man1"></em></p>-->
-<!--                                                </div>-->
-<!--                                            </div>-->
-<!--                                            <div class="rightbox">-->
-<!--&lt;!&ndash;                                                <div class="topbox" id="topBox"></div>&ndash;&gt;-->
-<!--                                                <div class="bottombox">-->
-<!--                                                    <div class="bottomleft">-->
-<!--                                                        <p>股票率：<em id="sto1"></em></p>-->
-<!--                                                        <p>债券率：<em id="bon1"></em></p>-->
-<!--                                                        <p>现金率：<em id="cas1"></em></p>-->
-<!--                                                        <h3><a href="" onclick="fun_a()" id="link1">更多信息</a></h3>-->
-<!--                                                    </div>-->
-<!--                                                    <div class="bottomright">-->
-<!--                                                        <p style="font-size:20px">STYLE</p>-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
-<!--                                            </div>-->
                                         </div>
                                     </li>
                                     <li class="mt-tabpage-item"style="color: #4984a6;margin: 0;padding: 0">
                                         <div class="container">
-                                            <div class="leftbox">
-                                                <div class="upbox" style="text-align:center">
-                                                    <h2 style="height:50%" id="nam2"></h2><h3 id="no2">3</h3>
-                                                </div >
-                                                <div  class="downbox">
+                                            <div class="row" style="margin-top: 5%">
+                                                <div class="col-md-6">
+                                                    <div class="topbox" id="bargraph2"></div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="topbox" id="topBox2"></div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <h2 style="height:10%" id="nam2"></h2><h3 id="no2"></h3>
                                                     <p>基金涨幅： <em id="inc2"></em></p>
                                                     <p>基金类型：<em id="typ2"></em></p>
                                                     <p>基金风险：<em id="ris2"></em></p>
                                                     <p>基金规模：<em id="sca2"></em>(亿元)</p>
                                                     <p>基金建立时间：<em id="est2"></em></p>
+                                                    <p style="display: none"><em id="num2"></em></p>
+                                                    <p style="display: none"><em id="fxtz2"></em></p>
+                                                    <p style="display: none"><em id="fxzb2"></em></p>
+                                                    <p style="display: none"><em id="xgnl2"></em></p>
+                                                    <p style="display: none"><em id="zsnl2"></em></p>
+                                                    <p style="display: none"><em id="syzb2"></em></p>
+                                                </div>
+                                                <div class="col-md-6" >
                                                     <p>基金公司：<em id="com2"></em></p>
                                                     <p>基金经理：<em id="man2"></em></p>
-                                                </div>
-                                            </div>
-                                            <div class="rightbox">
-                                                <div class="topbox" id="topBox2"></div>
-                                                <div class="bottombox">
-                                                    <div class="bottomleft">
-                                                        <p>股票率：<em id="sto2"></em></p>
-                                                        <p>债券率：<em id="bon2"></em></p>
-                                                        <p>现金率：<em id="cas2"></em></p>
-                                                        <h3><a href="" onclick="fun_b()" id="link2">更多信息</a></h3>
-                                                    </div>
-                                                    <div class="bottomright">
-                                                        <p style="font-size:20px">STYLE</p>
-                                                    </div>
+                                                    <p>股票率：<em id="sto2"></em></p>
+                                                    <p>债券率：<em id="bon2"></em></p>
+                                                    <p>现金率：<em id="cas2"></em></p>
+                                                    <h3><a href="" onclick="fun_b()" id="link2">更多信息</a></h3>
                                                 </div>
                                             </div>
                                         </div>
                                     </li>
                                     <li class="mt-tabpage-item"style="color: #4984a6;margin: 0;padding: 0">
                                         <div class="container">
-                                            <div class="leftbox">
-                                                <div class="upbox" style="text-align:center">
-                                                    <h2 style="height:50%" id="nam3"></h2><h3 id="no3">5</h3>
-                                                </div >
-                                                <div  class="downbox">
+                                            <div class="row" style="margin-top: 5%">
+                                                <div class="col-md-6">
+                                                    <div class="topbox" id="bargraph3"></div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="topbox" id="topBox3"></div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <h2 style="height:10%" id="nam3"></h2><h3 id="no3"></h3>
                                                     <p>基金涨幅： <em id="inc3"></em></p>
                                                     <p>基金类型：<em id="typ3"></em></p>
                                                     <p>基金风险：<em id="ris3"></em></p>
                                                     <p>基金规模：<em id="sca3"></em>(亿元)</p>
                                                     <p>基金建立时间：<em id="est3"></em></p>
+                                                    <p style="display: none"><em id="num3"></em></p>
+                                                    <p style="display: none"><em id="fxtz3"></em></p>
+                                                    <p style="display: none"><em id="fxzb3"></em></p>
+                                                    <p style="display: none"><em id="xgnl3"></em></p>
+                                                    <p style="display: none"><em id="zsnl3"></em></p>
+                                                    <p style="display: none"><em id="syzb3"></em></p>
+                                                </div>
+                                                <div class="col-md-6" >
                                                     <p>基金公司：<em id="com3"></em></p>
                                                     <p>基金经理：<em id="man3"></em></p>
-                                                </div>
-                                            </div>
-                                            <div class="rightbox">
-                                                <div class="topbox" id="topBox3"></div>
-                                                <div class="bottombox">
-                                                    <div class="bottomleft">
-                                                        <p>股票率：<em id="sto3"></em></p>
-                                                        <p>债券率：<em id="bon3"></em></p>
-                                                        <p>现金率：<em id="cas3"></em></p>
-                                                        <h3><a href="" onclick="fun_c()" id="link3">更多信息</a></h3>
-                                                    </div>
-                                                    <div class="bottomright">
-                                                        <p style="font-size:20px">STYLE</p>
-                                                    </div>
+                                                    <p>股票率：<em id="sto3"></em></p>
+                                                    <p>债券率：<em id="bon3"></em></p>
+                                                    <p>现金率：<em id="cas3"></em></p>
+                                                    <h3><a href="" onclick="fun_c()" id="link3">更多信息</a></h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -326,14 +310,7 @@
 
                                             <p>用户名: <strong id="username">Andy</strong></p>
                                             <img id="userimg" src="img/item-01.jpg" style="width: 100px;height: 100px">
-                                            <p>账号资产(元)<br>
-                                                <em id="accountcredit">10000000</em> </p>
-                                            <p>昨日收益(元)<br>
-                                            <em id="profityesterday">2550</em>
-                                            </p>
-                                            <p>可用金额(元)<br>
-                                            <em id="availablecredit">100000</em>
-                                            </p>
+
 <!--                                                <div>-->
 <!--                                                    -->
 <!--                                                </div>-->
@@ -443,7 +420,21 @@
 
 <script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
+<script type="text/javascript" src="js/redar1.js"></script>
+<script>
+    var test;
+    function loadaction() {
+        loadXMLDoc();
+        readstar();
+        test = window.loadaction.search;
+        userid= test.substring(1);
 
+    }
+    // function sleep (time) {
+    //     return new Promise((resolve) => setTimeout(resolve, time));
+    // }
+
+</script>
 <script type="text/javascript">
     function fun_a() {
         document.getElementById("link1").setAttribute('href',code1);
@@ -462,216 +453,10 @@
     }
 </script>
 
+
+
 <!--画图-->
-<script type="text/javascript">
-    var dom = document.getElementById("bargraph1");
-    var myChart = echarts.init(dom);
-
-    option = {
-        color: ['#3398DB'],
-        tooltip : {
-            trigger: 'axis',
-            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-            }
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        xAxis : [
-            {
-                type : 'category',
-                data : ['第一季度', '第二季度', '第三季度', '第四季度',],
-                axisTick: {
-                    alignWithLabel: true
-                }
-            }
-        ],
-        yAxis : [
-            {
-                type : 'value'
-            }
-        ],
-        series : [
-            {
-                name:'规模（万）',
-                type:'bar',
-                barWidth: '60%',
-                data:[10, 52, 200, 334]
-            }
-        ]
-    };
-
-    myChart.setOption(option);
-</script>
-
-<script type="text/javascript">
-
-
-    var dom = document.getElementById("topBox");
-    var myChart = echarts.init(dom);
-
-    // 指定图表的配置项和数据
-    option = {
-        // title: {
-        //     text: '基础雷达图'
-        // },
-        tooltip: {},
-        legend: {
-            data: ['用户', '基金']
-        },
-        radar: {
-            // shape: 'circle',
-            name: {
-                textStyle: {
-                    color: '#fff',
-                    backgroundColor: '#999',
-                    borderRadius: 3,
-                    padding: [3, 5]
-                }
-            },
-            indicator: [
-                { name: '经理水平', max: 10},
-                { name: '盈利能力', max: 10},
-                { name: '风险系数', max: 10},
-                { name: '舆情导向', max: 10},
-                { name: '公司评估', max: 10}
-            ]
-        },
-        series: [{
-            name: '用户 vs 基金',
-            type: 'radar',
-            // areaStyle: {normal: {}},
-            data : [
-                {
-                    value : [8, 10, 2, 3, 5],
-                    name : '用户'
-                },
-                {
-                    value : [8, 4, 8, 3, 4],
-                    name : '基金'
-                }
-            ]
-        }]
-    };
-
-
-    // 使用刚指定的配置项和数据显示图表。
-    myChart.setOption(option);
-</script>
-
-<script type="text/javascript">
-
-
-    var dom = document.getElementById("topBox2");
-    var myChart = echarts.init(dom);
-
-    // 指定图表的配置项和数据
-    option = {
-        // title: {
-        //     text: '基础雷达图'
-        // },
-        tooltip: {},
-        legend: {
-            data: ['用户', '基金']
-        },
-        radar: {
-            // shape: 'circle',
-            name: {
-                textStyle: {
-                    color: '#fff',
-                    backgroundColor: '#999',
-                    borderRadius: 3,
-                    padding: [3, 5]
-                }
-            },
-            indicator: [
-                { name: '经理水平', max: 10},
-                { name: '盈利能力', max: 10},
-                { name: '风险系数', max: 10},
-                { name: '舆情导向', max: 10},
-                { name: '公司评估', max: 10}
-            ]
-        },
-        series: [{
-            name: '用户 vs 基金',
-            type: 'radar',
-            // areaStyle: {normal: {}},
-            data : [
-                {
-                    value : [8, 10, 2, 3, 5],
-                    name : '用户'
-                },
-                {
-                    value : [6, 7, 5, 3, 2],
-                    name : '基金'
-                }
-            ]
-        }]
-    };
-
-
-    // 使用刚指定的配置项和数据显示图表。
-    myChart.setOption(option);
-</script>
-
-<script type="text/javascript">
-
-
-    var dom = document.getElementById("topBox3");
-    var myChart = echarts.init(dom);
-
-    // 指定图表的配置项和数据
-    option = {
-        // title: {
-        //     text: '基础雷达图'
-        // },
-        tooltip: {},
-        legend: {
-            data: ['用户', '基金']
-        },
-        radar: {
-            // shape: 'circle',
-            name: {
-                textStyle: {
-                    color: '#fff',
-                    backgroundColor: '#999',
-                    borderRadius: 3,
-                    padding: [3, 5]
-                }
-            },
-            indicator: [
-                { name: '经理水平', max: 10},
-                { name: '盈利能力', max: 10},
-                { name: '风险系数', max: 10},
-                { name: '舆情导向', max: 10},
-                { name: '公司评估', max: 10}
-            ]
-        },
-        series: [{
-            name: '用户 vs 基金',
-            type: 'radar',
-            // areaStyle: {normal: {}},
-            data : [
-                {
-                    value : [8, 10, 2, 3, 5],
-                    name : '用户'
-                },
-                {
-                    value : [5, 4, 8, 3, 4],
-                    name : '基金'
-                }
-            ]
-        }]
-    };
-
-
-    // 使用刚指定的配置项和数据显示图表。
-    myChart.setOption(option);
-</script>
+<script type="text/javascript" src="js/table.js"></script>
 
 <!--表格-->
 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
@@ -688,26 +473,6 @@
             'captions':{ a_to_z: '升序排列', z_to_a: '降序排列', search: '搜索', select_all: '全部选择' }
         });
     });
-</script>
-
-
-<script>
-    var test;
-    function loadaction() {
-        loadXMLDoc1();
-        loadXMLDetail1();
-        loadXMLDoc2();
-        loadXMLDetail2();
-        loadXMLDoc3();
-        loadXMLDetail3();
-        readstar();
-        test = window.loadaction.search;
-        userid= test.substring(1);
-    }
-    function sleep (time) {
-        return new Promise((resolve) => setTimeout(resolve, time));
-    }
-
 </script>
 
 
@@ -752,6 +517,232 @@
 </script>
 
 <script type="text/javascript" src="js/mt-tabpage.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+
+        $('[js-tab=2]').tab({
+            mouse: 'over',   //切换方式：over，click
+            autoPlay: false,  //播放方式：false，true
+
+            curDisplay: 1,     //当前第一个打开
+            changeMethod: 'horizontal'  //切换选项：默认default，horizontal，vertical，opacity这4种方式
+        });
+
+        $('[js-tab=3]').tab({
+            curDisplay: 2,
+            changeMethod: 'horizontal'
+        });
+
+    });
+</script>
+<!--<script type="text/javascript">-->
+<!--    var dom = document.getElementById("bargraph1");-->
+<!--    var myChart = echarts.init(dom);-->
+
+<!--    option = {-->
+<!--        color: ['#3398DB'],-->
+<!--        tooltip : {-->
+<!--            trigger: 'axis',-->
+<!--            axisPointer : {            // 坐标轴指示器，坐标轴触发有效-->
+<!--                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'-->
+<!--            }-->
+<!--        },-->
+<!--        grid: {-->
+<!--            left: '3%',-->
+<!--            right: '4%',-->
+<!--            bottom: '3%',-->
+<!--            containLabel: true-->
+<!--        },-->
+<!--        xAxis : [-->
+<!--            {-->
+<!--                type : 'category',-->
+<!--                data : ['第一季度', '第二季度', '第三季度', '第四季度',],-->
+<!--                axisTick: {-->
+<!--                    alignWithLabel: true-->
+<!--                }-->
+<!--            }-->
+<!--        ],-->
+<!--        yAxis : [-->
+<!--            {-->
+<!--                type : 'value'-->
+<!--            }-->
+<!--        ],-->
+<!--        series : [-->
+<!--            {-->
+<!--                name:'规模（万）',-->
+<!--                type:'bar',-->
+<!--                barWidth: '60%',-->
+<!--                data:[10, 52, 200, 334]-->
+<!--            }-->
+<!--        ]-->
+<!--    };-->
+
+<!--    myChart.setOption(option);-->
+<!--</script>-->
+
+<!--<script type="text/javascript">-->
+
+
+<!--    var dom = document.getElementById("topBox");-->
+<!--    var myChart = echarts.init(dom);-->
+
+<!--    // 指定图表的配置项和数据-->
+<!--    option = {-->
+<!--        // title: {-->
+<!--        //     text: '基础雷达图'-->
+<!--        // },-->
+<!--        tooltip: {},-->
+<!--        legend: {-->
+<!--            data: ['用户', '基金']-->
+<!--        },-->
+<!--        radar: {-->
+<!--            // shape: 'circle',-->
+<!--            name: {-->
+<!--                textStyle: {-->
+<!--                    color: '#fff',-->
+<!--                    backgroundColor: '#999',-->
+<!--                    borderRadius: 3,-->
+<!--                    padding: [3, 5]-->
+<!--                }-->
+<!--            },-->
+<!--            indicator: [-->
+<!--                { name: '风险调整', max: 1},-->
+<!--                { name: '风险指标', max: 1},-->
+<!--                { name: '收益指标', max: 1},-->
+<!--                { name: '选股能力', max: 1},-->
+<!--                { name: '择时能力', max: 1}-->
+<!--            ]-->
+<!--        },-->
+<!--        series: [{-->
+<!--            name: '用户 vs 基金',-->
+<!--            type: 'radar',-->
+<!--            // areaStyle: {normal: {}},-->
+<!--            data : [-->
+<!--                {-->
+<!--                    value : [0.8, 1, 0.2, 0.3, 0.5],-->
+<!--                    name : '用户'-->
+<!--                },-->
+<!--                {-->
+<!--                    value : [document.getElementById("fxtz1").innerHTML, document.getElementById("fxzb1").innerHTML, document.getElementById("syzb1").innerHTML, document.getElementById("xgnl1").innerHTML, document.getElementById("zsnl1").innerHTML],-->
+<!--                    name : '基金'-->
+<!--                }-->
+<!--            ]-->
+<!--        }]-->
+<!--    };-->
+
+
+<!--    // 使用刚指定的配置项和数据显示图表。-->
+<!--    myChart.setOption(option);-->
+<!--</script>-->
+
+<!--<script type="text/javascript">-->
+
+
+<!--    var dom = document.getElementById("topBox2");-->
+<!--    var myChart = echarts.init(dom);-->
+
+<!--    // 指定图表的配置项和数据-->
+<!--    option = {-->
+<!--        // title: {-->
+<!--        //     text: '基础雷达图'-->
+<!--        // },-->
+<!--        tooltip: {},-->
+<!--        legend: {-->
+<!--            data: ['用户', '基金']-->
+<!--        },-->
+<!--        radar: {-->
+<!--            // shape: 'circle',-->
+<!--            name: {-->
+<!--                textStyle: {-->
+<!--                    color: '#fff',-->
+<!--                    backgroundColor: '#999',-->
+<!--                    borderRadius: 3,-->
+<!--                    padding: [3, 5]-->
+<!--                }-->
+<!--            },-->
+<!--            indicator: [-->
+<!--                { name: '风险调整', max: 1},-->
+<!--                { name: '风险指标', max: 1},-->
+<!--                { name: '收益指标', max: 1},-->
+<!--                { name: '选股能力', max: 1},-->
+<!--                { name: '择时能力', max: 1}-->
+<!--            ]-->
+<!--        },-->
+<!--        series: [{-->
+<!--            name: '用户 vs 基金',-->
+<!--            type: 'radar',-->
+<!--            // areaStyle: {normal: {}},-->
+<!--            data : [-->
+<!--                {-->
+<!--                    value : [0.8, 1, 0.2, 0.3, 0.5],-->
+<!--                    name : '用户'-->
+<!--                },-->
+<!--                {-->
+<!--                    value : [document.getElementById("fxtz2").innerHTML, document.getElementById("fxzb2").innerHTML, document.getElementById("syzb2").innerHTML, document.getElementById("xgnl2").innerHTML, document.getElementById("zsnl2").innerHTML],-->
+<!--                    name : '基金'-->
+<!--                }-->
+<!--            ]-->
+<!--        }]-->
+<!--    };-->
+
+
+<!--    // 使用刚指定的配置项和数据显示图表。-->
+<!--    myChart.setOption(option);-->
+<!--</script>-->
+
+<!--<script type="text/javascript">-->
+<!--    var dom = document.getElementById("topBox3");-->
+<!--    var myChart = echarts.init(dom);-->
+
+<!--    // 指定图表的配置项和数据-->
+<!--    option = {-->
+<!--        // title: {-->
+<!--        //     text: '基础雷达图'-->
+<!--        // },-->
+<!--        tooltip: {},-->
+<!--        legend: {-->
+<!--            data: ['用户', '基金']-->
+<!--        },-->
+<!--        radar: {-->
+<!--            // shape: 'circle',-->
+<!--            name: {-->
+<!--                textStyle: {-->
+<!--                    color: '#fff',-->
+<!--                    backgroundColor: '#999',-->
+<!--                    borderRadius: 3,-->
+<!--                    padding: [3, 5]-->
+<!--                }-->
+<!--            },-->
+<!--            indicator: [-->
+<!--                { name: '风险调整', max: 1},-->
+<!--                { name: '风险指标', max: 1},-->
+<!--                { name: '收益指标', max: 1},-->
+<!--                { name: '选股能力', max: 1},-->
+<!--                { name: '择时能力', max: 1}-->
+<!--            ]-->
+<!--        },-->
+<!--        series: [{-->
+<!--            name: '用户 vs 基金',-->
+<!--            type: 'radar',-->
+<!--            // areaStyle: {normal: {}},-->
+<!--            data : [-->
+<!--                {-->
+<!--                    value : [0.8, 1, 0.2, 0.3, 0.5],-->
+<!--                    name : '用户'-->
+<!--                },-->
+<!--                {-->
+<!--                    value : [document.getElementById("fxtz3").innerHTML, document.getElementById("fxzb3").innerHTML, document.getElementById("syzb3").innerHTML, document.getElementById("xgnl3").innerHTML, document.getElementById("zsnl3").innerHTML],-->
+<!--                    name : '基金'-->
+<!--                }-->
+<!--            ]-->
+<!--        }]-->
+<!--    };-->
+<!--    // 使用刚指定的配置项和数据显示图表。-->
+<!--    myChart.setOption(option);-->
+<!--</script>-->
+
+
 <!--<script>-->
 <!--    function loadXMLDoc1()-->
 <!--    {-->
@@ -963,24 +954,6 @@
 <!--    }-->
 <!--</script>-->
 
-<script type="text/javascript">
-    $(function () {
-
-        $('[js-tab=2]').tab({
-            mouse: 'over',   //切换方式：over，click
-             autoPlay: false,  //播放方式：false，true
-
-            curDisplay: 1,     //当前第一个打开
-            changeMethod: 'horizontal'  //切换选项：默认default，horizontal，vertical，opacity这4种方式
-        });
-
-        $('[js-tab=3]').tab({
-            curDisplay: 2,
-            changeMethod: 'horizontal'
-        });
-
-    });
-</script>
 
 <!--<script type="text/javascript">-->
 <!--    function readstar(){-->

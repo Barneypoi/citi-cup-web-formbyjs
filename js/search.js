@@ -30,7 +30,7 @@ function search(){
                 // window.location.href = 'search.html';
             }
         }
-    }
+    };
         xmlhttp.open("GET", "http://47.100.120.235:8081/srcInfo?fundNameorId=" + document.getElementById("searchBox").value, true);
         xmlhttp.send();
 
@@ -38,7 +38,7 @@ function search(){
 
 function getId(obj) {
     //获得点击li元素的id
-    var strClick,objectClick
+    var strClick,objectClick;
     var oid = object[obj.id-1].fundId;
     var xmlhttp;
     if (window.XMLHttpRequest) {
@@ -55,7 +55,7 @@ function getId(obj) {
             objectClick = JSON.parse(strClick);
             alert("基金规模："+ objectClick[0].fundScale+"\n"+"基金建立时间："+ objectClick[0].fundEstablishTime+"\n"+"基金公司："+objectClick[0].funCompany+"\n"+"基金经理："+objectClick[0].fundManager+"\n"+"股票率："+objectClick[0].stockRatio+"\n"+"债券率："+objectClick[0].bondRatio+"\n"+"现金率："+objectClick.cashRatio);
         }
-    }
+    };
     xmlhttp.open("GET", "http://47.100.120.235:8081/detailInfo?fundId=" + oid, true);
     xmlhttp.send();
 }
@@ -89,7 +89,7 @@ function addStar(element) {
                 i.setAttribute("onclick","judgestar(this)");
                 i.setAttribute("columnNum",j);
             }
-        }
+        };
         xmlhttp.open("POST", "http://47.100.120.235:8081/collection", true);
         xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
         xmlhttp.send("uuid=4cdfcb8a-a3b9-11e9-b20e-f42cb030f26f&operation=add&fundId="+object[element.parentNode.id-1].fundId+"&date=" + timestamp);

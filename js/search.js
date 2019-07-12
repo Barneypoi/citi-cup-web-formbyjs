@@ -15,6 +15,7 @@ function search(){
             object = JSON.parse(searchSequence);
             var ul = document.getElementById('ul1');
             for (var i = 0; i < object.length; i++) {
+                //循环显示搜索结果
                 var li = document.createElement("li");
                 var a = document.createElement("a");
                 var bt = document.createElement("button");
@@ -49,6 +50,7 @@ function getId(obj) {
     }
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            //弹窗显示详细信息
             strClick = xmlhttp.responseText;
             objectClick = JSON.parse(strClick);
             alert("基金规模："+ objectClick[0].fundScale+"\n"+"基金建立时间："+ objectClick[0].fundEstablishTime+"\n"+"基金公司："+objectClick[0].funCompany+"\n"+"基金经理："+objectClick[0].fundManager+"\n"+"股票率："+objectClick[0].stockRatio+"\n"+"债券率："+objectClick[0].bondRatio+"\n"+"现金率："+objectClick.cashRatio);
@@ -70,6 +72,7 @@ function addStar(element) {
         }
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                //在收藏列表中加入新的元素
                 var sl = document.getElementById('starlist');
                 var div = document.createElement("div");
                 var a = document.createElement("a");

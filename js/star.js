@@ -14,6 +14,7 @@ function readstar()
         }
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            //在收藏列表中循环动态插入新的元素
             var myStar = xmlhttp.responseText;
             var starObject = JSON.parse(myStar);
             var sl = document.getElementById('starlist');
@@ -56,6 +57,7 @@ function readstar()
             }
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    //移除对应的父节点
                     element.parentNode.parentNode.removeChild(element.parentNode);
                 }
             }
